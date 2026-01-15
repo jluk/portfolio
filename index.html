@@ -11,8 +11,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Subtle background accent -->
+    <!-- Animated background -->
     <div class="bg-gradient"></div>
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+
+    <!-- MySpace-style music player -->
+    <div class="music-player" id="musicPlayer">
+        <button class="music-btn" id="musicBtn" aria-label="Play music">
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                <rect x="6" y="4" width="4" height="16"/>
+                <rect x="14" y="4" width="4" height="16"/>
+            </svg>
+        </button>
+        <span class="music-label">vibe</span>
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
     <main>
         <!-- Hero -->
@@ -30,8 +50,23 @@
         <!-- About -->
         <section class="about">
             <h2>About</h2>
-            <p>I'm a product leader focused on bringing AI research to production. Currently at Google, I lead GenAI for Workspace—shipping the first new product in the suite in over a decade. Previously, I built GenAI Music at Meta's Fundamental AI Research lab and led Kubernetes to become Azure's largest service.</p>
-            <p>I studied Computer Science at Georgia Tech and care deeply about the craft of product management, from 0-to-1 creation to scaling systems that serve billions.</p>
+            <ul class="about-list">
+                <li>Leading <span class="highlight">GenAI for Google Workspace</span> — first new product in the suite in a decade</li>
+                <li>Previously built <span class="highlight">GenAI Music at Meta FAIR</span> and led <span class="highlight">Kubernetes</span> to become Azure's largest service</li>
+                <li>Focused on <span class="highlight">research to production</span>, 0-to-1 creation, and scaling to billions</li>
+            </ul>
+            <div class="education">
+                <div class="education-logo">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2z"/>
+                        <path d="M12 13L4.24 9.31 4 9.19V14.5C4 16.43 7.58 18 12 18s8-1.57 8-3.5V9.19l-.24.12L12 13z"/>
+                    </svg>
+                </div>
+                <div class="education-text">
+                    <span class="education-degree">B.S. Computer Science</span>
+                    <span class="education-school">Georgia Institute of Technology</span>
+                </div>
+            </div>
         </section>
 
         <!-- Active Projects - Vibecoding -->
@@ -46,24 +81,12 @@
                     <span class="project-tech">Claude Code + HTML/CSS</span>
                 </a>
                 <a href="#" class="project-card">
-                    <span class="project-status">Active</span>
-                    <h3>Project Name</h3>
-                    <p>Brief description of what this project does and the problem it solves.</p>
+                    <span class="project-status wip">WIP</span>
+                    <h3>PM Education</h3>
+                    <p>Interactive course on product management fundamentals for aspiring and early-career PMs.</p>
                     <span class="project-tech">Claude + React</span>
                 </a>
-                <a href="#" class="project-card">
-                    <span class="project-status">Active</span>
-                    <h3>Project Name</h3>
-                    <p>Brief description of what this project does and the problem it solves.</p>
-                    <span class="project-tech">Claude + Python</span>
-                </a>
-                <a href="#" class="project-card">
-                    <span class="project-status">Active</span>
-                    <h3>Project Name</h3>
-                    <p>Brief description of what this project does and the problem it solves.</p>
-                    <span class="project-tech">Cursor + TypeScript</span>
-                </a>
-            </div>
+                            </div>
         </section>
 
         <!-- Experience -->
@@ -89,10 +112,11 @@
                     <span class="dates">2023 – Present</span>
                 </div>
                 <ul>
-                    <li>GenAI lead for Vids, the first new product in Workspace in 10 years</li>
-                    <li>Launched Text-to-Video (Veo), VoiceLM, and multimodal Gemini to GA</li>
-                    <li>Created first internal Editing Agents for self-driven video editing</li>
-                    <li>Started new DeepMind research areas for multi-year AI video roadmap</li>
+                    <li><span class="highlight">GenAI lead</span> for Vids, <span class="highlight">first new Workspace product</span> in 10 years</li>
+                    <li>Launched <span class="highlight">first AI avatar</span> at Google — preferred <span class="highlight">5x more</span> vs. competitors</li>
+                    <li>Shipped <span class="highlight">Veo</span>, <span class="highlight">VoiceLM</span>, <span class="highlight">Gemini</span>, <span class="highlight">Nanobanana</span> in Workspace</li>
+                    <li>Built first <span class="highlight">Editing Agents</span> for autonomous video creation</li>
+                    <li>Opened <span class="highlight">DeepMind research</span> areas for AI video roadmap</li>
                 </ul>
             </article>
 
@@ -112,10 +136,10 @@
                     <span class="dates">2022 – 2023</span>
                 </div>
                 <ul>
-                    <li>Product lead for GenAI Music across FAIR and GenAI product org</li>
-                    <li>Published Controllable Music Generation research, securing $20M+ for training</li>
-                    <li>Landed 3 AI Music pitches for Instagram, Smart Glasses, and Ads</li>
-                    <li>Recorded human+AI album with major music label and billboard artist</li>
+                    <li><span class="highlight">Product lead</span> for GenAI Music across <span class="highlight">FAIR</span> and product org</li>
+                    <li>Published <span class="highlight">MusicGen</span> research, secured <span class="highlight">$20M+</span> training budget</li>
+                    <li>Landed <span class="highlight">3 AI Music pitches</span> for Instagram, Glasses, and Ads</li>
+                    <li>Recorded <span class="highlight">human+AI album</span> with billboard artist</li>
                 </ul>
             </article>
 
@@ -135,9 +159,9 @@
                     <span class="dates">2020 – 2022</span>
                 </div>
                 <ul>
-                    <li>Built 0-to-1 SMB Lending program, MVP in 6 months projecting $2.5B annual revenue</li>
-                    <li>Redesigned $1B+ Ads billing system to unify global payment options</li>
-                    <li>Launched Flex Billing for +$250M annual revenue at &lt;3% leakage</li>
+                    <li>Built <span class="highlight">0-to-1</span> SMB Lending — MVP in 6mo, <span class="highlight">$2.5B</span> projected ARR</li>
+                    <li>Redesigned <span class="highlight">$1B+ Ads billing</span> to unify global payments</li>
+                    <li>Launched Flex Billing — <span class="highlight">+$250M ARR</span> at &lt;3% leakage</li>
                 </ul>
             </article>
 
@@ -157,10 +181,10 @@
                     <span class="dates">2016 – 2020</span>
                 </div>
                 <ul>
-                    <li>PM lead for AKS, the fastest growing and now largest service on Azure</li>
-                    <li>Led AKS to Gartner "Leader" with feature parity to EKS/GKE</li>
-                    <li>Launched 0-to-1 products: Container Instances and Cloud Shell</li>
-                    <li>Reached GA for both services across 20+ datacenter regions</li>
+                    <li><span class="highlight">PM lead</span> for AKS — <span class="highlight">fastest growing</span>, now <span class="highlight">largest</span> Azure service</li>
+                    <li>Led AKS to <span class="highlight">Gartner "Leader"</span> with EKS/GKE parity</li>
+                    <li>Launched <span class="highlight">0-to-1</span>: <span class="highlight">Container Instances</span> + <span class="highlight">Cloud Shell</span></li>
+                    <li>Shipped both to <span class="highlight">GA</span> across <span class="highlight">20+ regions</span></li>
                 </ul>
             </article>
         </section>
@@ -332,5 +356,27 @@
     <footer>
         <p>&copy; 2025</p>
     </footer>
+
+    <script>
+        const musicBtn = document.getElementById('musicBtn');
+        const bgMusic = document.getElementById('bgMusic');
+        const musicPlayer = document.getElementById('musicPlayer');
+        const iconPlay = musicBtn.querySelector('.icon-play');
+        const iconPause = musicBtn.querySelector('.icon-pause');
+
+        musicBtn.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                iconPlay.style.display = 'none';
+                iconPause.style.display = 'block';
+                musicPlayer.classList.add('playing');
+            } else {
+                bgMusic.pause();
+                iconPlay.style.display = 'block';
+                iconPause.style.display = 'none';
+                musicPlayer.classList.remove('playing');
+            }
+        });
+    </script>
 </body>
 </html>
