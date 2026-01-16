@@ -293,11 +293,11 @@ h2 {
     font-weight: 500;
 }
 
-.education {
+.edu {
     margin-bottom: 4.5rem;
 }
 
-.education-text {
+.edu span {
     font-size: 1rem;
     color: var(--text-secondary);
 }
