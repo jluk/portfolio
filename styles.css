@@ -65,9 +65,10 @@ body {
     transform: scale(1.05);
 }
 
-.social-sidebar svg {
+.social-sidebar a svg {
     width: 18px;
     height: 18px;
+    flex-shrink: 0;
 }
 
 /* MySpace-style music player */
