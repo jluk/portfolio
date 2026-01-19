@@ -49,7 +49,14 @@ Hero → About → Building Now (projects) → Experience (CV) → Education →
 
 "Building Now" section uses `.project-card` with:
 - `.project-screenshot` - 16:10 aspect ratio image container
+  - Add `.has-video` class for hover video effect (static img → video on hover)
+  - Videos auto-play on hover, reset on mouse leave
 - `.project-status` - "Active" badge
 - `.project-tech` - Tech stack footer
 
 Current projects: PM Roast (pm-roast.vercel.app), Portfolio (jluk.me)
+
+Assets needed in `screenshots/`:
+- `pm-roast.png` - 3D mockup static image
+- `pm-roast-demo.mp4` - ~2s screen recording of LLM streaming
+- `portfolio.png` - Portfolio screenshot

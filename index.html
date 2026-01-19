@@ -77,8 +77,9 @@
             <p class="section-intro">Side projects I'm shipping with AI. Ideas to execution, powered by LLMs.</p>
             <div class="projects-grid">
                 <a href="https://pm-roast.vercel.app" target="_blank" rel="noopener" class="project-card">
-                    <div class="project-screenshot">
+                    <div class="project-screenshot has-video">
                         <img src="screenshots/pm-roast.png" alt="PM Roast screenshot" loading="lazy">
+                        <video src="screenshots/pm-roast-demo.mp4" muted loop playsinline></video>
                     </div>
                     <span class="project-status">Active</span>
                     <h3>PM Roast</h3>
@@ -389,6 +390,18 @@
                 iconPlay.style.display = 'block';
                 iconPause.style.display = 'none';
                 musicPlayer.classList.remove('playing');
+            }
+        });
+
+        // Play video on hover for project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            const video = card.querySelector('video');
+            if (video) {
+                card.addEventListener('mouseenter', () => video.play());
+                card.addEventListener('mouseleave', () => {
+                    video.pause();
+                    video.currentTime = 0;
+                });
             }
         });
     </script>

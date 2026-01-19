@@ -357,18 +357,31 @@ h2 {
     margin-bottom: 1rem;
     overflow: hidden;
     border: 1px solid var(--border);
+    position: relative;
 }
 
-.project-screenshot img {
+.project-screenshot img,
+.project-screenshot video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: top;
-    transition: transform 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
-.project-card:hover .project-screenshot img {
-    transform: scale(1.02);
+.project-screenshot video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.project-card:hover .project-screenshot.has-video img {
+    opacity: 0;
+}
+
+.project-card:hover .project-screenshot.has-video video {
+    opacity: 1;
 }
 
 .project-status {
