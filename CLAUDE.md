@@ -54,7 +54,7 @@ Hero → About → Building Now (projects) → Experience (CV) → Education →
 - `.project-status` - "Active" badge
 - `.project-tech` - Tech stack footer
 
-Current projects: PM Roast (pm-roast.vercel.app), Portfolio (jluk.me)
+Current projects: PM Roast (pmroast.com), Portfolio (jluk.me)
 
 Assets needed in `screenshots/`:
 - `pm-roast.png` - 3D mockup static image
