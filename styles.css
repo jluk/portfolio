@@ -140,12 +140,12 @@ body {
     bottom: 0;
     background: linear-gradient(
         -45deg,
-        #0a0a0a,
-        #0a1510,
-        #0d1a12,
-        #081208,
-        #0a0f0a,
-        #0a0a0a
+        #050505,
+        #060a08,
+        #070d09,
+        #050805,
+        #060906,
+        #050505
     );
     background-size: 300% 300%;
     animation: forest-flow 12s ease-in-out infinite;
@@ -163,9 +163,9 @@ body {
     background: linear-gradient(
         45deg,
         transparent 0%,
-        rgba(34, 197, 94, 0.07) 25%,
-        rgba(22, 163, 74, 0.05) 50%,
-        rgba(5, 150, 105, 0.07) 75%,
+        rgba(34, 197, 94, 0.04) 25%,
+        rgba(22, 163, 74, 0.03) 50%,
+        rgba(5, 150, 105, 0.04) 75%,
         transparent 100%
     );
     background-size: 200% 200%;
@@ -181,11 +181,11 @@ body {
     bottom: 0;
     background: linear-gradient(
         135deg,
-        rgba(16, 185, 129, 0.06) 0%,
+        rgba(16, 185, 129, 0.035) 0%,
         transparent 30%,
-        rgba(52, 211, 153, 0.04) 50%,
+        rgba(52, 211, 153, 0.025) 50%,
         transparent 70%,
-        rgba(5, 150, 105, 0.06) 100%
+        rgba(5, 150, 105, 0.035) 100%
     );
     background-size: 250% 250%;
     animation: shimmer-2 10s ease-in-out infinite reverse;
@@ -428,6 +428,1361 @@ h2 {
     margin-top: 1rem;
     padding-top: 0.75rem;
     border-top: 1px solid var(--border);
+}
+
+/* PM Card Project - Special styling */
+.pm-card-project {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: visible;
+}
+
+.pm-card-project:hover {
+    transform: none;
+}
+
+.pm-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Floating glow effect */
+.pm-card-glow {
+    position: absolute;
+    top: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 360px;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(236, 72, 153, 0.25), rgba(251, 191, 36, 0.25));
+    border-radius: 24px;
+    filter: blur(50px);
+    opacity: 0.4;
+    animation: pm-glow-pulse 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes pm-glow-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
+}
+
+/* Card flip container */
+.pm-card-flip {
+    width: 280px;
+    height: 392px;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    --glare-x: 50%;
+    --glare-y: 50%;
+}
+
+.pm-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.pm-card-flip.flipped .pm-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Only animate flip, not hover tilt */
+.pm-card-flip:not(.hovering) .pm-card-inner {
+    transition: transform 0.5s ease;
+}
+
+/* Holographic glare overlay */
+.pm-card-front::after,
+.pm-card-back::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 20;
+    background: radial-gradient(
+        circle at var(--glare-x, 50%) var(--glare-y, 50%),
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0.05) 30%,
+        transparent 60%
+    );
+}
+
+.pm-card-flip.hovering .pm-card-front::after,
+.pm-card-flip.hovering .pm-card-back::after {
+    opacity: 1;
+}
+
+.pm-card-front,
+.pm-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.pm-card-back {
+    transform: rotateY(180deg);
+}
+
+/* Front of card - Pokemon style */
+.pm-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 5px solid #db2777;
+    background: linear-gradient(180deg, #fdf2f8 0%, #fbcfe8 30%, #f472b6 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(219, 39, 119, 0.3);
+}
+
+.pm-card-inner-border {
+    position: absolute;
+    inset: 3px;
+    border: 1px solid rgba(219, 39, 119, 0.3);
+    border-radius: 6px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Card header */
+.pm-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    flex-shrink: 0;
+}
+
+.pm-card-name {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+}
+
+.pm-card-emoji {
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.pm-card-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: #831843;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pm-card-hp {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.pm-card-score {
+    font-size: 14px;
+    font-weight: 900;
+    color: #dc2626;
+}
+
+.pm-card-score-max {
+    font-size: 9px;
+    font-weight: 700;
+    color: #be185d;
+}
+
+.pm-card-hp-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: #9d174d;
+    margin-left: 2px;
+}
+
+.pm-card-element {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ec4899;
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2px;
+}
+
+/* Card image frame */
+.pm-card-image-frame {
+    margin: 0 10px 6px;
+    border-radius: 6px;
+    border: 3px solid rgba(219, 39, 119, 0.4);
+    overflow: hidden;
+    position: relative;
+    height: 120px;
+    flex-shrink: 0;
+}
+
+.pm-card-image-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #831843, #be185d, #db2777);
+}
+
+.pm-card-image-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.3) 0%, transparent 50%);
+}
+
+.pm-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+/* Type badge row */
+.pm-card-type-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px 5px;
+    flex-shrink: 0;
+}
+
+.pm-card-type-badge {
+    font-size: 9px;
+    font-weight: 700;
+    color: white;
+    background: #ec4899;
+    padding: 3px 10px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.pm-card-stage {
+    font-size: 9px;
+    font-style: italic;
+    color: #9d174d;
+}
+
+/* Moves section */
+.pm-card-moves {
+    margin: 0 10px 5px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 6px;
+    border: 1px solid rgba(219, 39, 119, 0.3);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.pm-card-move {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 8px;
+}
+
+.pm-card-move:first-child {
+    border-bottom: 1px solid rgba(219, 39, 119, 0.2);
+}
+
+.pm-card-energy {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ec4899;
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pm-card-move-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.pm-card-move-name {
+    font-size: 10px;
+    font-weight: 700;
+    color: #831843;
+    display: block;
+    line-height: 1.2;
+}
+
+.pm-card-move-effect {
+    font-size: 8px;
+    color: #be185d;
+    display: block;
+    line-height: 1.3;
+    margin-top: 1px;
+}
+
+.pm-card-move-damage {
+    font-size: 14px;
+    font-weight: 900;
+    color: #831843;
+    flex-shrink: 0;
+}
+
+/* Flavor text */
+.pm-card-flavor {
+    margin: 0 10px 5px;
+    padding: 6px 8px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 5px;
+    border: 1px solid rgba(219, 39, 119, 0.2);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-height: 2.5rem;
+}
+
+.pm-card-flavor p {
+    font-size: 9px;
+    font-style: italic;
+    color: #9d174d;
+    text-align: center;
+    line-height: 1.4;
+    width: 100%;
+}
+
+/* Card footer */
+.pm-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    background: rgba(219, 39, 119, 0.2);
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+.pm-card-weakness {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.pm-card-weakness-label {
+    font-size: 9px;
+    color: #9d174d;
+}
+
+.pm-card-weakness-value {
+    font-size: 9px;
+    font-weight: 700;
+    color: #831843;
+}
+
+.pm-card-brand {
+    font-size: 9px;
+    font-weight: 600;
+    color: #be185d;
+}
+
+/* Back of card */
+.pm-card-back-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 5px solid #fbbf24;
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+}
+
+.pm-card-back-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 8px,
+        rgba(251, 191, 36, 0.15) 8px,
+        rgba(251, 191, 36, 0.15) 16px
+    );
+}
+
+.pm-card-back-inner-border {
+    position: absolute;
+    inset: 10px;
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+.pm-card-back-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.pm-card-back-badge {
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%);
+    color: #7c2d12;
+    padding: 3px 10px;
+    border-radius: 10px;
+}
+
+.pm-card-back-rarity {
+    font-size: 8px;
+    font-weight: 700;
+    color: #f472b6;
+}
+
+.pm-card-back-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.pm-card-back-label {
+    font-size: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(251, 191, 36, 0.6);
+    margin-bottom: 2px;
+}
+
+.pm-card-back-archetype {
+    font-size: 16px;
+    font-weight: 900;
+    color: #fbbf24;
+    margin-bottom: 8px;
+}
+
+.pm-card-back-score-badge {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    padding: 4px 12px;
+    background: linear-gradient(180deg, rgba(251, 191, 36, 0.2) 0%, rgba(251, 191, 36, 0.1) 100%);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: 16px;
+    margin-bottom: 8px;
+}
+
+.pm-card-back-score-label {
+    font-size: 7px;
+    color: rgba(251, 191, 36, 0.7);
+}
+
+.pm-card-back-score-value {
+    font-size: 16px;
+    font-weight: 900;
+    color: #fbbf24;
+}
+
+.pm-card-back-score-max {
+    font-size: 9px;
+    color: rgba(251, 191, 36, 0.5);
+}
+
+.pm-card-back-quote {
+    position: relative;
+    padding: 8px 10px;
+    background: linear-gradient(180deg, rgba(251, 191, 36, 0.05) 0%, rgba(251, 191, 36, 0.02) 100%);
+    border: 1px solid rgba(251, 191, 36, 0.15);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.pm-card-back-quote-mark {
+    position: absolute;
+    font-size: 14px;
+    font-family: serif;
+    color: rgba(251, 191, 36, 0.3);
+}
+
+.pm-card-back-quote-mark:first-of-type {
+    top: 0;
+    left: 4px;
+}
+
+.pm-card-back-quote-mark.end {
+    bottom: -4px;
+    right: 4px;
+}
+
+.pm-card-back-quote p {
+    font-size: 8px;
+    font-style: italic;
+    color: rgba(253, 230, 138, 0.9);
+    text-align: center;
+    line-height: 1.4;
+}
+
+.pm-card-back-divider {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.pm-card-back-divider-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(251, 191, 36, 0.2);
+}
+
+.pm-card-back-pokeball {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.pm-card-back-pokeball-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(251, 191, 36, 0.2) 0%, transparent 100%);
+}
+
+.pm-card-back-pokeball-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(251, 191, 36, 0.3);
+    transform: translateY(-50%);
+}
+
+.pm-card-back-pokeball-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(251, 191, 36, 0.5);
+}
+
+.pm-card-back-cta {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.pm-card-back-cta-url {
+    font-size: 11px;
+    font-weight: 700;
+    color: #fbbf24;
+}
+
+/* Corner accents */
+.pm-card-back-corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: rgba(251, 191, 36, 0.2);
+    border-style: solid;
+    border-width: 0;
+}
+
+.pm-card-back-corner.tl {
+    top: 12px;
+    left: 12px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-top-left-radius: 3px;
+}
+
+.pm-card-back-corner.tr {
+    top: 12px;
+    right: 12px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-top-right-radius: 3px;
+}
+
+.pm-card-back-corner.bl {
+    bottom: 12px;
+    left: 12px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-bottom-left-radius: 3px;
+}
+
+.pm-card-back-corner.br {
+    bottom: 12px;
+    right: 12px;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+    border-bottom-right-radius: 3px;
+}
+
+/* Flip hint */
+.pm-card-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 12px;
+}
+
+/* PM Card link section */
+.pm-card-link {
+    display: block;
+    padding: 0.75rem 1.25rem 1.25rem;
+    text-decoration: none;
+    border-top: 1px solid var(--border);
+}
+
+.pm-card-link:hover {
+    background: rgba(255,255,255,0.02);
+}
+
+.pm-card-link .project-status {
+    margin-bottom: 0.5rem;
+}
+
+.pm-card-link h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.pm-card-link p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.pm-card-link .project-tech {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+}
+
+/* Hover effect on card */
+.pm-card-flip:hover .pm-card {
+    box-shadow: 0 12px 40px rgba(219, 39, 119, 0.5);
+}
+
+.pm-card-flip:hover .pm-card-back-content {
+    box-shadow: 0 12px 40px rgba(251, 191, 36, 0.5);
+}
+
+/* ====== JLUK Personal Site Card ====== */
+.jluk-card-project {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: visible;
+}
+
+.jluk-card-project:hover {
+    transform: none;
+}
+
+.jluk-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.jluk-card-glow {
+    position: absolute;
+    top: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 360px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.25));
+    border-radius: 24px;
+    filter: blur(50px);
+    opacity: 0.4;
+    animation: jluk-glow-pulse 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes jluk-glow-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
+}
+
+.jluk-card-flip {
+    width: 280px;
+    height: 392px;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    --glare-x: 50%;
+    --glare-y: 50%;
+}
+
+.jluk-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.jluk-card-flip.flipped .jluk-card-inner {
+    transform: rotateY(180deg);
+}
+
+.jluk-card-flip:not(.hovering) .jluk-card-inner {
+    transition: transform 0.5s ease;
+}
+
+.jluk-card-front,
+.jluk-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.jluk-card-back {
+    transform: rotateY(180deg);
+}
+
+/* Holographic glare overlay */
+.jluk-card-front::after,
+.jluk-card-back::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 20;
+    background: radial-gradient(
+        circle at var(--glare-x, 50%) var(--glare-y, 50%),
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0.05) 30%,
+        transparent 60%
+    );
+}
+
+.jluk-card-flip.hovering .jluk-card-front::after,
+.jluk-card-flip.hovering .jluk-card-back::after {
+    opacity: 1;
+}
+
+/* Front of card - Purple/Strategy style */
+.jluk-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 5px solid #7c3aed;
+    background: linear-gradient(180deg, #f5f3ff 0%, #ddd6fe 30%, #a78bfa 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+}
+
+.jluk-card-inner-border {
+    position: absolute;
+    inset: 3px;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 6px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.jluk-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    flex-shrink: 0;
+}
+
+.jluk-card-name {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+}
+
+.jluk-card-emoji {
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.jluk-card-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: #4c1d95;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.jluk-card-hp {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.jluk-card-score {
+    font-size: 14px;
+    font-weight: 900;
+    color: #dc2626;
+}
+
+.jluk-card-score-max {
+    font-size: 9px;
+    font-weight: 700;
+    color: #6d28d9;
+}
+
+.jluk-card-hp-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: #5b21b6;
+    margin-left: 2px;
+}
+
+.jluk-card-element {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #8b5cf6;
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2px;
+}
+
+.jluk-card-image-frame {
+    margin: 0 10px 6px;
+    border-radius: 6px;
+    border: 3px solid rgba(124, 58, 237, 0.4);
+    overflow: hidden;
+    position: relative;
+    height: 120px;
+    flex-shrink: 0;
+}
+
+.jluk-card-image-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #4c1d95, #6d28d9, #7c3aed);
+}
+
+.jluk-card-image-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.3) 0%, transparent 50%);
+}
+
+.jluk-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.jluk-card-type-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px 5px;
+    flex-shrink: 0;
+}
+
+.jluk-card-type-badge {
+    font-size: 9px;
+    font-weight: 700;
+    color: white;
+    background: #8b5cf6;
+    padding: 3px 10px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.jluk-card-stage {
+    font-size: 9px;
+    font-style: italic;
+    color: #5b21b6;
+}
+
+.jluk-card-moves {
+    margin: 0 10px 5px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 6px;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.jluk-card-move {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 8px;
+}
+
+.jluk-card-move:first-child {
+    border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.jluk-card-energy {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #8b5cf6;
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.jluk-card-move-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.jluk-card-move-name {
+    font-size: 10px;
+    font-weight: 700;
+    color: #4c1d95;
+    display: block;
+    line-height: 1.2;
+}
+
+.jluk-card-move-effect {
+    font-size: 8px;
+    color: #6d28d9;
+    display: block;
+    line-height: 1.3;
+    margin-top: 1px;
+}
+
+.jluk-card-move-damage {
+    font-size: 14px;
+    font-weight: 900;
+    color: #4c1d95;
+    flex-shrink: 0;
+}
+
+.jluk-card-flavor {
+    margin: 0 10px 5px;
+    padding: 6px 8px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 5px;
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-height: 2.5rem;
+}
+
+.jluk-card-flavor p {
+    font-size: 9px;
+    font-style: italic;
+    color: #5b21b6;
+    text-align: center;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.jluk-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    background: rgba(124, 58, 237, 0.2);
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+.jluk-card-weakness {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.jluk-card-weakness-label {
+    font-size: 9px;
+    color: #5b21b6;
+}
+
+.jluk-card-weakness-value {
+    font-size: 9px;
+    font-weight: 700;
+    color: #4c1d95;
+}
+
+.jluk-card-brand {
+    font-size: 9px;
+    font-weight: 600;
+    color: #6d28d9;
+}
+
+/* Back of jluk card */
+.jluk-card-back-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 5px solid #8b5cf6;
+    background: linear-gradient(180deg, #1a1a2e 0%, #1e1b4b 50%, #0f0f23 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+.jluk-card-back-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 8px,
+        rgba(139, 92, 246, 0.15) 8px,
+        rgba(139, 92, 246, 0.15) 16px
+    );
+}
+
+.jluk-card-back-inner-border {
+    position: absolute;
+    inset: 10px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+.jluk-card-back-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.jluk-card-back-badge {
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    background: linear-gradient(180deg, #8b5cf6 0%, #7c3aed 100%);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 10px;
+}
+
+.jluk-card-back-rarity {
+    font-size: 8px;
+    font-weight: 700;
+    color: #a78bfa;
+}
+
+.jluk-card-back-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.jluk-card-back-label {
+    font-size: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(167, 139, 250, 0.6);
+    margin-bottom: 2px;
+}
+
+.jluk-card-back-archetype {
+    font-size: 16px;
+    font-weight: 900;
+    color: #a78bfa;
+    margin-bottom: 8px;
+}
+
+.jluk-card-back-score-badge {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    padding: 4px 12px;
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 16px;
+    margin-bottom: 8px;
+}
+
+.jluk-card-back-score-label {
+    font-size: 7px;
+    color: rgba(167, 139, 250, 0.7);
+}
+
+.jluk-card-back-score-value {
+    font-size: 16px;
+    font-weight: 900;
+    color: #a78bfa;
+}
+
+.jluk-card-back-score-max {
+    font-size: 9px;
+    color: rgba(167, 139, 250, 0.5);
+}
+
+.jluk-card-back-quote {
+    position: relative;
+    padding: 8px 10px;
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.05) 0%, rgba(139, 92, 246, 0.02) 100%);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.jluk-card-back-quote-mark {
+    position: absolute;
+    font-size: 14px;
+    font-family: serif;
+    color: rgba(167, 139, 250, 0.3);
+}
+
+.jluk-card-back-quote-mark:first-of-type {
+    top: 0;
+    left: 4px;
+}
+
+.jluk-card-back-quote-mark.end {
+    bottom: -4px;
+    right: 4px;
+}
+
+.jluk-card-back-quote p {
+    font-size: 8px;
+    font-style: italic;
+    color: rgba(221, 214, 254, 0.9);
+    text-align: center;
+    line-height: 1.4;
+}
+
+.jluk-card-back-divider {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.jluk-card-back-divider-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(139, 92, 246, 0.2);
+}
+
+.jluk-card-back-pokeball {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.jluk-card-back-pokeball-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.2) 0%, transparent 100%);
+}
+
+.jluk-card-back-pokeball-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(139, 92, 246, 0.3);
+    transform: translateY(-50%);
+}
+
+.jluk-card-back-pokeball-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(139, 92, 246, 0.5);
+}
+
+.jluk-card-back-cta {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.jluk-card-back-cta-url {
+    font-size: 11px;
+    font-weight: 700;
+    color: #a78bfa;
+}
+
+.jluk-card-back-corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: rgba(139, 92, 246, 0.2);
+    border-style: solid;
+    border-width: 0;
+}
+
+.jluk-card-back-corner.tl {
+    top: 12px;
+    left: 12px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-top-left-radius: 3px;
+}
+
+.jluk-card-back-corner.tr {
+    top: 12px;
+    right: 12px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-top-right-radius: 3px;
+}
+
+.jluk-card-back-corner.bl {
+    bottom: 12px;
+    left: 12px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-bottom-left-radius: 3px;
+}
+
+.jluk-card-back-corner.br {
+    bottom: 12px;
+    right: 12px;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+    border-bottom-right-radius: 3px;
+}
+
+.jluk-card-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 12px;
+}
+
+.jluk-card-link {
+    display: block;
+    padding: 0.75rem 1.25rem 1.25rem;
+    text-decoration: none;
+    border-top: 1px solid var(--border);
+}
+
+.jluk-card-link:hover {
+    background: rgba(255,255,255,0.02);
+}
+
+.jluk-card-link .project-status {
+    margin-bottom: 0.5rem;
+}
+
+.jluk-card-link h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.jluk-card-link p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.jluk-card-link .project-tech {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+}
+
+.jluk-card-flip:hover .jluk-card {
+    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.5);
+}
+
+.jluk-card-flip:hover .jluk-card-back-content {
+    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.5);
 }
 
 /* Interests */

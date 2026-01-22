@@ -55,7 +55,7 @@
         <section class="hero">
             <h1>Justin Luk</h1>
             <p class="role">Product Leader</p>
-            <p class="tagline">10+ years shipping AI products at Google, Meta, and Microsoft. Research to production. Zero to one. Whatever it takes.</p>
+            <p class="tagline">10+ years shipping AI products at Google, Meta, and Microsoft. Research to production. Zero to one.</p>
         </section>
 
         <!-- About -->
@@ -71,27 +71,284 @@
         <!-- Active Projects - Vibecoding -->
         <section class="active-projects">
             <h2>Building Now</h2>
-            <p class="section-intro">Side projects I'm shipping with AI. Ideas to execution, powered by LLMs.</p>
+            <p class="section-intro">Side projects I'm shipping with AI.</p>
             <div class="projects-grid">
-                <a href="https://pmroast.com" target="_blank" rel="noopener" class="project-card">
-                    <div class="project-screenshot has-video">
-                        <img src="screenshots/pm-roast.png" alt="PM Roast screenshot" loading="lazy">
-                        <video src="screenshots/pm-roast-demo.mp4" muted loop playsinline></video>
+                <div class="project-card pm-card-project">
+                    <!-- Interactive Pokemon-style PM Card -->
+                    <div class="pm-card-container">
+                        <div class="pm-card-glow"></div>
+                        <div class="pm-card-flip" id="pmCardFlip">
+                            <div class="pm-card-inner">
+                                <!-- Front of card -->
+                                <div class="pm-card-front">
+                                    <div class="pm-card">
+                                        <!-- Inner border -->
+                                        <div class="pm-card-inner-border"></div>
+
+                                        <!-- Header -->
+                                        <div class="pm-card-header">
+                                            <div class="pm-card-name">
+                                                <span class="pm-card-emoji">✨</span>
+                                                <span class="pm-card-title">Your PM Card</span>
+                                            </div>
+                                            <div class="pm-card-hp">
+                                                <span class="pm-card-score">85</span>
+                                                <span class="pm-card-score-max">/100</span>
+                                                <span class="pm-card-hp-label">HP</span>
+                                                <span class="pm-card-element">V</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Image frame -->
+                                        <div class="pm-card-image-frame">
+                                            <div class="pm-card-image-bg"></div>
+                                            <img src="screenshots/your-pm-card.png" alt="Your PM Card" class="pm-card-image">
+                                        </div>
+
+                                        <!-- Type badge -->
+                                        <div class="pm-card-type-row">
+                                            <span class="pm-card-type-badge">Vision Type PM</span>
+                                            <span class="pm-card-stage">???</span>
+                                        </div>
+
+                                        <!-- Moves -->
+                                        <div class="pm-card-moves">
+                                            <div class="pm-card-move">
+                                                <span class="pm-card-energy">V</span>
+                                                <div class="pm-card-move-info">
+                                                    <span class="pm-card-move-name">Get Roasted</span>
+                                                    <span class="pm-card-move-effect">Reveal your true PM nature.</span>
+                                                </div>
+                                                <span class="pm-card-move-damage">99</span>
+                                            </div>
+                                            <div class="pm-card-move">
+                                                <span class="pm-card-energy">V</span>
+                                                <span class="pm-card-energy">V</span>
+                                                <div class="pm-card-move-info">
+                                                    <span class="pm-card-move-name">Share Card</span>
+                                                    <span class="pm-card-move-effect">Post to X and LinkedIn.</span>
+                                                </div>
+                                                <span class="pm-card-move-damage">50</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Flavor text -->
+                                        <div class="pm-card-flavor">
+                                            <p>Discover your archetype. Get brutally roasted. Share the results.</p>
+                                        </div>
+
+                                        <!-- Footer -->
+                                        <div class="pm-card-footer">
+                                            <div class="pm-card-weakness">
+                                                <span class="pm-card-weakness-label">weakness</span>
+                                                <span class="pm-card-weakness-value">???</span>
+                                            </div>
+                                            <span class="pm-card-brand">pmroast.com</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Back of card -->
+                                <div class="pm-card-back">
+                                    <div class="pm-card-back-content">
+                                        <div class="pm-card-back-pattern"></div>
+                                        <div class="pm-card-back-inner-border"></div>
+
+                                        <!-- Header -->
+                                        <div class="pm-card-back-header">
+                                            <span class="pm-card-back-badge">PM ROAST</span>
+                                            <span class="pm-card-back-rarity">Ultra Rare</span>
+                                        </div>
+
+                                        <!-- Main content -->
+                                        <div class="pm-card-back-main">
+                                            <p class="pm-card-back-label">You are</p>
+                                            <h3 class="pm-card-back-archetype">???</h3>
+
+                                            <div class="pm-card-back-score-badge">
+                                                <span class="pm-card-back-score-label">Career Score</span>
+                                                <span class="pm-card-back-score-value">??</span>
+                                                <span class="pm-card-back-score-max">/100</span>
+                                            </div>
+
+                                            <div class="pm-card-back-quote">
+                                                <span class="pm-card-back-quote-mark">&ldquo;</span>
+                                                <p>Your personalized trading card awaits. Are you ready to get roasted?</p>
+                                                <span class="pm-card-back-quote-mark end">&rdquo;</span>
+                                            </div>
+
+                                            <!-- Pokeball divider -->
+                                            <div class="pm-card-back-divider">
+                                                <div class="pm-card-back-divider-line"></div>
+                                                <div class="pm-card-back-pokeball">
+                                                    <div class="pm-card-back-pokeball-top"></div>
+                                                    <div class="pm-card-back-pokeball-line"></div>
+                                                    <div class="pm-card-back-pokeball-center"></div>
+                                                </div>
+                                                <div class="pm-card-back-divider-line"></div>
+                                            </div>
+
+                                            <div class="pm-card-back-cta">
+                                                <p class="pm-card-back-cta-url">pmroast.com</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Corner accents -->
+                                        <div class="pm-card-back-corner tl"></div>
+                                        <div class="pm-card-back-corner tr"></div>
+                                        <div class="pm-card-back-corner bl"></div>
+                                        <div class="pm-card-back-corner br"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="pm-card-hint">Tap to flip</p>
                     </div>
-                    <span class="project-status">Active</span>
-                    <h3>PM Roast</h3>
-                    <p>Get brutally honest AI feedback on your PM career. Powered by Lenny's Podcast wisdom.</p>
-                    <span class="project-tech">Next.js + Gemini + Tailwind</span>
-                </a>
-                <a href="https://jluk.me" target="_blank" rel="noopener" class="project-card">
-                    <div class="project-screenshot">
-                        <img src="screenshots/portfolio.png" alt="Portfolio screenshot" loading="lazy">
+                    <a href="https://pmroast.com" target="_blank" rel="noopener" class="pm-card-link">
+                        <span class="project-status">Active</span>
+                        <h3>PM Roast</h3>
+                        <p>Get brutally honest AI feedback on your PM career. Powered by Lenny's Podcast wisdom.</p>
+                        <span class="project-tech">Next.js + Gemini + Tailwind</span>
+                    </a>
+                </div>
+                <div class="project-card jluk-card-project">
+                    <!-- Interactive Pokemon-style Personal Site Card -->
+                    <div class="jluk-card-container">
+                        <div class="jluk-card-glow"></div>
+                        <div class="jluk-card-flip" id="jlukCardFlip">
+                            <div class="jluk-card-inner">
+                                <!-- Front of card -->
+                                <div class="jluk-card-front">
+                                    <div class="jluk-card">
+                                        <!-- Inner border -->
+                                        <div class="jluk-card-inner-border"></div>
+
+                                        <!-- Header -->
+                                        <div class="jluk-card-header">
+                                            <div class="jluk-card-name">
+                                                <span class="jluk-card-emoji">🚀</span>
+                                                <span class="jluk-card-title">jluk.me</span>
+                                            </div>
+                                            <div class="jluk-card-hp">
+                                                <span class="jluk-card-score">90</span>
+                                                <span class="jluk-card-score-max">/100</span>
+                                                <span class="jluk-card-hp-label">HP</span>
+                                                <span class="jluk-card-element">S</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Image frame -->
+                                        <div class="jluk-card-image-frame">
+                                            <div class="jluk-card-image-bg"></div>
+                                            <img src="screenshots/justin.jpeg" alt="Justin Luk" class="jluk-card-image">
+                                        </div>
+
+                                        <!-- Type badge -->
+                                        <div class="jluk-card-type-row">
+                                            <span class="jluk-card-type-badge">Strategy Type PM</span>
+                                            <span class="jluk-card-stage">Lead</span>
+                                        </div>
+
+                                        <!-- Moves -->
+                                        <div class="jluk-card-moves">
+                                            <div class="jluk-card-move">
+                                                <span class="jluk-card-energy">S</span>
+                                                <div class="jluk-card-move-info">
+                                                    <span class="jluk-card-move-name">Ship It</span>
+                                                    <span class="jluk-card-move-effect">Deploy to production instantly.</span>
+                                                </div>
+                                                <span class="jluk-card-move-damage">80</span>
+                                            </div>
+                                            <div class="jluk-card-move">
+                                                <span class="jluk-card-energy">S</span>
+                                                <span class="jluk-card-energy">S</span>
+                                                <div class="jluk-card-move-info">
+                                                    <span class="jluk-card-move-name">Vibe Code</span>
+                                                    <span class="jluk-card-move-effect">Build with AI pair programming.</span>
+                                                </div>
+                                                <span class="jluk-card-move-damage">120</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Flavor text -->
+                                        <div class="jluk-card-flavor">
+                                            <p>Minimal personal site built entirely with Claude Code. No frameworks, just vibes.</p>
+                                        </div>
+
+                                        <!-- Footer -->
+                                        <div class="jluk-card-footer">
+                                            <div class="jluk-card-weakness">
+                                                <span class="jluk-card-weakness-label">weakness</span>
+                                                <span class="jluk-card-weakness-value">Scope Creep</span>
+                                            </div>
+                                            <span class="jluk-card-brand">jluk.me</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Back of card -->
+                                <div class="jluk-card-back">
+                                    <div class="jluk-card-back-content">
+                                        <div class="jluk-card-back-pattern"></div>
+                                        <div class="jluk-card-back-inner-border"></div>
+
+                                        <!-- Header -->
+                                        <div class="jluk-card-back-header">
+                                            <span class="jluk-card-back-badge">PERSONAL SITE</span>
+                                            <span class="jluk-card-back-rarity">Ultra Rare</span>
+                                        </div>
+
+                                        <!-- Main content -->
+                                        <div class="jluk-card-back-main">
+                                            <p class="jluk-card-back-label">Built by</p>
+                                            <h3 class="jluk-card-back-archetype">Justin Luk</h3>
+
+                                            <div class="jluk-card-back-score-badge">
+                                                <span class="jluk-card-back-score-label">Vibe Score</span>
+                                                <span class="jluk-card-back-score-value">90</span>
+                                                <span class="jluk-card-back-score-max">/100</span>
+                                            </div>
+
+                                            <div class="jluk-card-back-quote">
+                                                <span class="jluk-card-back-quote-mark">&ldquo;</span>
+                                                <p>AI Product Leader. 10+ years at Google, Meta, and Microsoft.</p>
+                                                <span class="jluk-card-back-quote-mark end">&rdquo;</span>
+                                            </div>
+
+                                            <!-- Pokeball divider -->
+                                            <div class="jluk-card-back-divider">
+                                                <div class="jluk-card-back-divider-line"></div>
+                                                <div class="jluk-card-back-pokeball">
+                                                    <div class="jluk-card-back-pokeball-top"></div>
+                                                    <div class="jluk-card-back-pokeball-line"></div>
+                                                    <div class="jluk-card-back-pokeball-center"></div>
+                                                </div>
+                                                <div class="jluk-card-back-divider-line"></div>
+                                            </div>
+
+                                            <div class="jluk-card-back-cta">
+                                                <p class="jluk-card-back-cta-url">jluk.me</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Corner accents -->
+                                        <div class="jluk-card-back-corner tl"></div>
+                                        <div class="jluk-card-back-corner tr"></div>
+                                        <div class="jluk-card-back-corner bl"></div>
+                                        <div class="jluk-card-back-corner br"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="jluk-card-hint">Tap to flip</p>
                     </div>
-                    <span class="project-status">Active</span>
-                    <h3>Portfolio</h3>
-                    <p>This site. Minimal personal portfolio built entirely with AI pair programming.</p>
-                    <span class="project-tech">Claude Code + HTML/CSS</span>
-                </a>
+                    <a href="https://jluk.me" class="jluk-card-link">
+                        <span class="project-status">Active</span>
+                        <h3>Personal Site</h3>
+                        <p>This site. Minimal personal portfolio built entirely with AI pair programming.</p>
+                        <span class="project-tech">Claude Code + HTML/CSS</span>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -401,6 +658,52 @@
                 });
             }
         });
+
+        // Card flip and hover interaction helper
+        function setupCardFlip(cardFlipEl, innerSelector) {
+            if (!cardFlipEl) return;
+
+            const cardInner = cardFlipEl.querySelector(innerSelector);
+
+            // Click to flip
+            cardFlipEl.addEventListener('click', () => {
+                cardFlipEl.classList.remove('hovering');
+                cardInner.style.transform = '';
+                cardFlipEl.classList.toggle('flipped');
+            });
+
+            // 3D tilt effect on hover
+            cardFlipEl.addEventListener('mousemove', (e) => {
+                const rect = cardFlipEl.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -10;
+                const rotateY = ((x - centerX) / centerX) * 10;
+
+                const glareX = (x / rect.width) * 100;
+                const glareY = (y / rect.height) * 100;
+
+                const flipOffset = cardFlipEl.classList.contains('flipped') ? 180 : 0;
+                cardInner.style.transform = `rotateY(${flipOffset + rotateY}deg) rotateX(${rotateX}deg)`;
+
+                cardFlipEl.style.setProperty('--glare-x', glareX + '%');
+                cardFlipEl.style.setProperty('--glare-y', glareY + '%');
+                cardFlipEl.classList.add('hovering');
+            });
+
+            cardFlipEl.addEventListener('mouseleave', () => {
+                const flipOffset = cardFlipEl.classList.contains('flipped') ? 180 : 0;
+                cardInner.style.transform = flipOffset ? 'rotateY(180deg)' : '';
+                cardFlipEl.classList.remove('hovering');
+            });
+        }
+
+        // Setup both cards
+        setupCardFlip(document.getElementById('pmCardFlip'), '.pm-card-inner');
+        setupCardFlip(document.getElementById('jlukCardFlip'), '.jluk-card-inner');
     </script>
 </body>
 </html>
