@@ -3,16 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Justin Luk - AI Product Leader</title>
-    <meta name="description" content="AI Product Leader with 10+ years building GenAI products at Google, Meta FAIR, and Microsoft. Specializing in research-to-production.">
+    <title>Justin Luk | AI Product Leader - Google, Meta, Microsoft</title>
+    <meta name="description" content="AI Product Leader portfolio & resume. 10+ years building GenAI products at Google, Meta FAIR, and Microsoft. Research to production, zero to one.">
+    <link rel="canonical" href="https://jluk.me">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Justin Luk - AI Product Leader">
+    <meta property="og:description" content="Shipping GenAI at Google, Meta FAIR, and Microsoft. Research to production. Zero to one.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jluk.me">
+    <meta property="og:image" content="https://jluk.me/screenshots/justin.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Justin Luk - AI Product Leader">
+    <meta name="twitter:description" content="10+ years shipping AI products at Google, Meta FAIR, and Microsoft.">
+    <meta name="twitter:image" content="https://jluk.me/screenshots/justin.jpeg">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <!-- Critical CSS inlined for faster first paint -->
+    <style>
+        :root{--bg:#0a0a0a;--bg-elevated:#131313;--text:#fff;--text-secondary:#c9c9c9;--text-muted:#919191;--border:#2a2a2a;--max-width:760px}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{font-size:17px;scroll-behavior:smooth}
+        body{font-family:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased}
+        .bg-gradient{position:fixed;inset:0;background:linear-gradient(-45deg,#050505,#060a08,#070d09,#050805,#060906,#050505);background-size:300% 300%;animation:forest-flow 12s ease-in-out infinite;pointer-events:none;z-index:-2}
+        @keyframes forest-flow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+        main{max-width:var(--max-width);margin:0 auto;padding:5rem 1.5rem 3rem}
+        .hero{margin-bottom:5rem}
+        .hero h1{font-size:3.5rem;font-weight:700;letter-spacing:-0.04em;margin-bottom:0.5rem;background:linear-gradient(135deg,#fff 0%,#fff 40%,#a5b4fc 60%,#818cf8 80%,#6366f1 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 8s ease-in-out infinite;background-size:200% 200%}
+        @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+        .hero .role{font-size:1.5rem;font-weight:500;color:var(--text);margin-bottom:1rem;display:inline-block;position:relative}
+        .hero .tagline{color:var(--text-secondary);max-width:540px;margin-bottom:2rem}
+    </style>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Justin Luk",
+        "url": "https://jluk.me",
+        "image": "https://jluk.me/screenshots/justin.jpeg",
+        "jobTitle": "AI Product Leader",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Google"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Georgia Institute of Technology"
+        },
+        "sameAs": [
+            "https://linkedin.com/in/lukjustin",
+            "https://twitter.com/whosjluk",
+            "https://github.com/jluk"
+        ],
+        "knowsAbout": ["Artificial Intelligence", "Product Management", "GenAI", "Kubernetes", "Cloud Computing"]
+    }
+    </script>
 </head>
 <body>
     <!-- Animated background -->
     <div class="bg-gradient"></div>
+
+    <!-- Progress nav -->
+    <nav class="progress-nav" id="progressNav">
+        <a href="#building" class="progress-dot" data-section="building" aria-label="Building Now"><span class="progress-label">Building</span></a>
+        <a href="#experience" class="progress-dot" data-section="experience" aria-label="Experience"><span class="progress-label">Experience</span></a>
+        <a href="#launched" class="progress-dot" data-section="launched" aria-label="Launched"><span class="progress-label">Launched</span></a>
+        <a href="#talks" class="progress-dot" data-section="talks" aria-label="Talks"><span class="progress-label">Talks</span></a>
+        <a href="#contact" class="progress-dot" data-section="contact" aria-label="Contact"><span class="progress-label">Contact</span></a>
+    </nav>
 
     <!-- Fixed social links -->
     <nav class="social-sidebar">
@@ -32,6 +95,20 @@
             </svg>
         </a>
     </nav>
+
+    <!-- Theme toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+        <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
 
     <!-- MySpace-style music player -->
     <div class="music-player" id="musicPlayer">
@@ -55,24 +132,316 @@
         <section class="hero">
             <h1>Justin Luk</h1>
             <p class="role">Product Leader</p>
-            <p class="tagline">10+ years shipping AI products at Google, Meta, and Microsoft. Research to production. Zero to one.</p>
-        </section>
-
-        <!-- About -->
-        <section class="about">
-            <h2>About</h2>
-            <ul class="about-list">
-                <li>Leading <span class="highlight">GenAI for Google Workspace</span> — first new product in a decade</li>
-                <li>Built <span class="highlight">GenAI Music at Meta FAIR</span>, led <span class="highlight">AKS</span> to Azure's largest service</li>
-                <li>Shipping <span class="highlight">research → production</span>, 0-to-1, and systems at scale</li>
-            </ul>
+            <p class="tagline">Shipping GenAI at Google, Meta FAIR, and Microsoft.<br>Research to production. Zero to one.</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-target="10" data-suffix="+">0</span>
+                    <span class="hero-stat-label">Years in AI</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-target="6">0</span>
+                    <span class="hero-stat-label">0-to-1 products</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-target="20" data-prefix="$" data-suffix="M+">0</span>
+                    <span class="hero-stat-label">Research budgets</span>
+                </div>
+            </div>
+            <div class="hero-logos">
+                <span class="hero-logos-label">Previously at</span>
+                <div class="hero-logos-row">
+                    <span class="hero-logo-item">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="hero-logo-svg google-logo">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285f4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34a853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#fbbc05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#ea4335"/>
+                        </svg>
+                        Google
+                    </span>
+                    <span class="hero-logo-item">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="hero-logo-svg meta-logo">
+                            <path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l.741 1.255.292.478c1.804 2.931 2.374 3.636 3.023 4.407 1.194 1.417 2.347 1.988 3.876 1.988 1.724 0 2.957-.67 3.703-1.781a5.25 5.25 0 0 0 .372-.64 6.03 6.03 0 0 0 .33-.903c.164-.636.258-1.34.258-2.096 0-2.511-.674-5.14-1.992-7.146C22.075 5.344 20.442 4.03 18.51 4.03c-1.573 0-2.773.776-3.96 2.293-.782 1.001-1.127 1.503-2.553 4.062l-.278.49-.096.165-.489-.816c-1.63-2.71-2.065-3.508-2.658-4.32C7.216 4.775 6.063 4.03 4.915 4.03h2zm.053 2.103c.692 0 1.32.471 2.106 1.638.727 1.082 1.322 2.147 2.023 3.398l.143.256c-1.594 2.5-2.2 3.376-2.898 4.263-.763.969-1.39 1.333-2.159 1.333-.85 0-1.504-.353-1.893-1.03a4.964 4.964 0 0 1-.163-.322 4.082 4.082 0 0 1-.142-.396 5.232 5.232 0 0 1-.17-.866 8.937 8.937 0 0 1-.06-1.079c0-2.246.61-4.653 1.581-6.283.537-.902 1.157-1.912 1.632-1.912zm11.542.001c.924 0 1.757.835 2.428 2.054.767 1.394 1.248 3.376 1.248 5.49 0 .595-.049 1.126-.142 1.577a3.704 3.704 0 0 1-.12.439 2.96 2.96 0 0 1-.122.29c-.284.543-.715.852-1.448.852-.876 0-1.504-.503-2.396-1.63-.534-.675-1.04-1.467-1.699-2.564l-.07-.12a42.604 42.604 0 0 1-.753-1.316 29.566 29.566 0 0 1-.647-1.217c1.248-2.074 1.704-2.792 2.201-3.384.614-.731 1.166-1.471 1.52-1.471z"/>
+                        </svg>
+                        Meta
+                    </span>
+                    <span class="hero-logo-item">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="hero-logo-svg microsoft-logo">
+                            <path d="M2 2h9.5v9.5H2V2z" fill="#f25022"/><path d="M12.5 2H22v9.5h-9.5V2z" fill="#7fba00"/><path d="M2 12.5h9.5V22H2v-9.5z" fill="#00a4ef"/><path d="M12.5 12.5H22V22h-9.5v-9.5z" fill="#ffb900"/>
+                        </svg>
+                        Microsoft
+                    </span>
+                </div>
+            </div>
         </section>
 
         <!-- Active Projects - Vibecoding -->
-        <section class="active-projects">
+        <section class="active-projects reveal" id="building">
             <h2>Building Now</h2>
             <p class="section-intro">Side projects I'm shipping with AI.</p>
             <div class="projects-grid">
+                <div class="project-card recon-card-project">
+                    <!-- Interactive Pokemon-style Recon Card -->
+                    <div class="recon-card-container">
+                        <div class="recon-card-glow"></div>
+                        <div class="recon-card-flip" id="reconCardFlip">
+                            <div class="recon-card-inner">
+                                <!-- Front of card -->
+                                <div class="recon-card-front">
+                                    <div class="recon-card">
+                                        <div class="recon-card-inner-border"></div>
+
+                                        <!-- Header -->
+                                        <div class="recon-card-header">
+                                            <div class="recon-card-name">
+                                                <span class="recon-card-emoji">🔍</span>
+                                                <span class="recon-card-title">Recon</span>
+                                            </div>
+                                            <div class="recon-card-hp">
+                                                <span class="recon-card-score">95</span>
+                                                <span class="recon-card-score-max">/100</span>
+                                                <span class="recon-card-hp-label">HP</span>
+                                                <span class="recon-card-element">I</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Image frame -->
+                                        <div class="recon-card-image-frame">
+                                            <div class="recon-card-image-bg"></div>
+                                            <img src="screenshots/recon.png" alt="Recon - AI competitive intelligence tool" class="recon-card-image">
+                                        </div>
+
+                                        <!-- Type badge -->
+                                        <div class="recon-card-type-row">
+                                            <span class="recon-card-type-badge">Intel Type</span>
+                                            <span class="recon-card-stage">Automated</span>
+                                        </div>
+
+                                        <!-- Moves -->
+                                        <div class="recon-card-moves">
+                                            <div class="recon-card-move">
+                                                <span class="recon-card-energy">I</span>
+                                                <div class="recon-card-move-info">
+                                                    <span class="recon-card-move-name">Deep Scan</span>
+                                                    <span class="recon-card-move-effect">Monitor 7 sources weekly.</span>
+                                                </div>
+                                                <span class="recon-card-move-damage">90</span>
+                                            </div>
+                                            <div class="recon-card-move">
+                                                <span class="recon-card-energy">I</span>
+                                                <span class="recon-card-energy">I</span>
+                                                <div class="recon-card-move-info">
+                                                    <span class="recon-card-move-name">Cross-Reference</span>
+                                                    <span class="recon-card-move-effect">2+ sources required to surface.</span>
+                                                </div>
+                                                <span class="recon-card-move-damage">120</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Flavor text -->
+                                        <div class="recon-card-flavor">
+                                            <p>Automated competitive intel. Turns a 2-hour research grind into a 5-minute Monday briefing.</p>
+                                        </div>
+
+                                        <!-- Footer -->
+                                        <div class="recon-card-footer">
+                                            <div class="recon-card-weakness">
+                                                <span class="recon-card-weakness-label">weakness</span>
+                                                <span class="recon-card-weakness-value">Info Overload</span>
+                                            </div>
+                                            <span class="recon-card-brand">recon</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Back of card -->
+                                <div class="recon-card-back">
+                                    <div class="recon-card-back-content">
+                                        <div class="recon-card-back-pattern"></div>
+                                        <div class="recon-card-back-inner-border"></div>
+
+                                        <div class="recon-card-back-header">
+                                            <span class="recon-card-back-badge">RECON</span>
+                                            <span class="recon-card-back-rarity">Ultra Rare</span>
+                                        </div>
+
+                                        <div class="recon-card-back-main">
+                                            <p class="recon-card-back-label">Powered by</p>
+                                            <h3 class="recon-card-back-archetype">Claude API</h3>
+
+                                            <div class="recon-card-back-score-badge">
+                                                <span class="recon-card-back-score-label">Intel Score</span>
+                                                <span class="recon-card-back-score-value">95</span>
+                                                <span class="recon-card-back-score-max">/100</span>
+                                            </div>
+
+                                            <div class="recon-card-back-quote">
+                                                <span class="recon-card-back-quote-mark">&ldquo;</span>
+                                                <p>The middle ground between expensive analysts and shallow Google Alerts.</p>
+                                                <span class="recon-card-back-quote-mark end">&rdquo;</span>
+                                            </div>
+
+                                            <div class="recon-card-back-divider">
+                                                <div class="recon-card-back-divider-line"></div>
+                                                <div class="recon-card-back-pokeball">
+                                                    <div class="recon-card-back-pokeball-top"></div>
+                                                    <div class="recon-card-back-pokeball-line"></div>
+                                                    <div class="recon-card-back-pokeball-center"></div>
+                                                </div>
+                                                <div class="recon-card-back-divider-line"></div>
+                                            </div>
+
+                                            <div class="recon-card-back-cta">
+                                                <p class="recon-card-back-cta-url">github.com/jluk/recon</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="recon-card-back-corner tl"></div>
+                                        <div class="recon-card-back-corner tr"></div>
+                                        <div class="recon-card-back-corner bl"></div>
+                                        <div class="recon-card-back-corner br"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="recon-card-hint">Tap to flip</p>
+                    </div>
+                    <a href="https://github.com/jluk/recon" target="_blank" rel="noopener" class="recon-card-link">
+                        <span class="project-status wip">In Progress</span>
+                        <h3>Recon</h3>
+                        <p>Automated competitive intelligence. Monitors 7 sources and cross-references findings.</p>
+                        <span class="project-tech">Next.js + Claude API + Supabase</span>
+                        <span class="project-url">github.com/jluk/recon ↗</span>
+                    </a>
+                </div>
+                <div class="project-card cooked-card-project">
+                    <!-- Interactive Pokemon-style Cooked Card -->
+                    <div class="cooked-card-container">
+                        <div class="cooked-card-glow"></div>
+                        <div class="cooked-card-flip" id="cookedCardFlip">
+                            <div class="cooked-card-inner">
+                                <!-- Front of card -->
+                                <div class="cooked-card-front">
+                                    <div class="cooked-card">
+                                        <div class="cooked-card-inner-border"></div>
+
+                                        <div class="cooked-card-header">
+                                            <div class="cooked-card-name">
+                                                <span class="cooked-card-emoji">🍳</span>
+                                                <span class="cooked-card-title">Cooked.</span>
+                                            </div>
+                                            <div class="cooked-card-hp">
+                                                <span class="cooked-card-score">88</span>
+                                                <span class="cooked-card-score-max">/100</span>
+                                                <span class="cooked-card-hp-label">HP</span>
+                                                <span class="cooked-card-element">F</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="cooked-card-image-frame">
+                                            <div class="cooked-card-image-bg"></div>
+                                            <img src="screenshots/cooked.png" alt="Cooked - AI meme generator for iMessage" class="cooked-card-image">
+                                        </div>
+
+                                        <div class="cooked-card-type-row">
+                                            <span class="cooked-card-type-badge">Fire Type</span>
+                                            <span class="cooked-card-stage">iMessage</span>
+                                        </div>
+
+                                        <div class="cooked-card-moves">
+                                            <div class="cooked-card-move">
+                                                <span class="cooked-card-energy">F</span>
+                                                <div class="cooked-card-move-info">
+                                                    <span class="cooked-card-move-name">Face Swap</span>
+                                                    <span class="cooked-card-move-effect">Roast with their own face.</span>
+                                                </div>
+                                                <span class="cooked-card-move-damage">95</span>
+                                            </div>
+                                            <div class="cooked-card-move">
+                                                <span class="cooked-card-energy">F</span>
+                                                <span class="cooked-card-energy">F</span>
+                                                <div class="cooked-card-move-info">
+                                                    <span class="cooked-card-move-name">Quick Roast</span>
+                                                    <span class="cooked-card-move-effect">Meme in under 2 seconds.</span>
+                                                </div>
+                                                <span class="cooked-card-move-damage">130</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="cooked-card-flavor">
+                                            <p>Cooked in a click. AI memes with your friend's face, straight from iMessage.</p>
+                                        </div>
+
+                                        <div class="cooked-card-footer">
+                                            <div class="cooked-card-weakness">
+                                                <span class="cooked-card-weakness-label">weakness</span>
+                                                <span class="cooked-card-weakness-value">Group Chats</span>
+                                            </div>
+                                            <span class="cooked-card-brand">cooked.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Back of card -->
+                                <div class="cooked-card-back">
+                                    <div class="cooked-card-back-content">
+                                        <div class="cooked-card-back-pattern"></div>
+                                        <div class="cooked-card-back-inner-border"></div>
+
+                                        <div class="cooked-card-back-header">
+                                            <span class="cooked-card-back-badge">COOKED.</span>
+                                            <span class="cooked-card-back-rarity">Ultra Rare</span>
+                                        </div>
+
+                                        <div class="cooked-card-back-main">
+                                            <p class="cooked-card-back-label">Powered by</p>
+                                            <h3 class="cooked-card-back-archetype">AI + InsightFace</h3>
+
+                                            <div class="cooked-card-back-score-badge">
+                                                <span class="cooked-card-back-score-label">Roast Score</span>
+                                                <span class="cooked-card-back-score-value">88</span>
+                                                <span class="cooked-card-back-score-max">/100</span>
+                                            </div>
+
+                                            <div class="cooked-card-back-quote">
+                                                <span class="cooked-card-back-quote-mark">&ldquo;</span>
+                                                <p>Personalized memes generated from chat context. Your friends are cooked.</p>
+                                                <span class="cooked-card-back-quote-mark end">&rdquo;</span>
+                                            </div>
+
+                                            <div class="cooked-card-back-divider">
+                                                <div class="cooked-card-back-divider-line"></div>
+                                                <div class="cooked-card-back-pokeball">
+                                                    <div class="cooked-card-back-pokeball-top"></div>
+                                                    <div class="cooked-card-back-pokeball-line"></div>
+                                                    <div class="cooked-card-back-pokeball-center"></div>
+                                                </div>
+                                                <div class="cooked-card-back-divider-line"></div>
+                                            </div>
+
+                                            <div class="cooked-card-back-cta">
+                                                <p class="cooked-card-back-cta-url">github.com/jluk/cooked</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="cooked-card-back-corner tl"></div>
+                                        <div class="cooked-card-back-corner tr"></div>
+                                        <div class="cooked-card-back-corner bl"></div>
+                                        <div class="cooked-card-back-corner br"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="cooked-card-hint">Tap to flip</p>
+                    </div>
+                    <a href="https://github.com/jluk/cooked" target="_blank" rel="noopener" class="cooked-card-link">
+                        <span class="project-status wip">In Progress</span>
+                        <h3>Cooked.</h3>
+                        <p>AI meme generator for iMessage. Face-swaps your friends into personalized roasts.</p>
+                        <span class="project-tech">Swift + Claude + InsightFace</span>
+                        <span class="project-url">github.com/jluk/cooked ↗</span>
+                    </a>
+                </div>
                 <div class="project-card pm-card-project">
                     <!-- Interactive Pokemon-style PM Card -->
                     <div class="pm-card-container">
@@ -102,7 +471,7 @@
                                         <!-- Image frame -->
                                         <div class="pm-card-image-frame">
                                             <div class="pm-card-image-bg"></div>
-                                            <img src="screenshots/your-pm-card.png" alt="Your PM Card" class="pm-card-image">
+                                            <img src="screenshots/your-pm-card.webp" alt="Your PM Card" class="pm-card-image">
                                         </div>
 
                                         <!-- Type badge -->
@@ -205,10 +574,11 @@
                         <p class="pm-card-hint">Tap to flip</p>
                     </div>
                     <a href="https://pmroast.com" target="_blank" rel="noopener" class="pm-card-link">
-                        <span class="project-status">Active</span>
+                        <span class="project-status">Live</span>
                         <h3>PM Roast</h3>
                         <p>Get brutally honest AI feedback on your PM career. Powered by Lenny's Podcast wisdom.</p>
                         <span class="project-tech">Next.js + Gemini + Tailwind</span>
+                        <span class="project-url">pmroast.com ↗</span>
                     </a>
                 </div>
                 <div class="project-card jluk-card-project">
@@ -240,7 +610,7 @@
                                         <!-- Image frame -->
                                         <div class="jluk-card-image-frame">
                                             <div class="jluk-card-image-bg"></div>
-                                            <img src="screenshots/justin.jpeg" alt="Justin Luk" class="jluk-card-image">
+                                            <img src="screenshots/justin.webp" alt="Justin Luk" class="jluk-card-image">
                                         </div>
 
                                         <!-- Type badge -->
@@ -343,17 +713,18 @@
                         <p class="jluk-card-hint">Tap to flip</p>
                     </div>
                     <a href="https://jluk.me" class="jluk-card-link">
-                        <span class="project-status">Active</span>
+                        <span class="project-status">Live</span>
                         <h3>Personal Site</h3>
                         <p>This site. Minimal personal portfolio built entirely with AI pair programming.</p>
                         <span class="project-tech">Claude Code + HTML/CSS</span>
+                        <span class="project-url">jluk.me ↗</span>
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- Experience -->
-        <section class="experience">
+        <section class="experience reveal" id="experience">
             <h2>Experience</h2>
 
             <article class="role-entry">
@@ -376,7 +747,7 @@
                 </div>
                 <ul>
                     <li><span class="highlight">GenAI lead</span> for Vids, <span class="highlight">first new Workspace product</span> in 10 years</li>
-                    <li>Launched <span class="highlight">first AI avatar</span> at Google — preferred <span class="highlight">5x more</span> vs. competitors</li>
+                    <li>Launched <span class="highlight">first AI avatar</span> at Google — preferred <span class="highlight metric">5x more</span> vs. competitors</li>
                     <li>Shipped <span class="highlight">Veo</span>, <span class="highlight">VoiceLM</span>, <span class="highlight">Gemini</span>, <span class="highlight">Nanobanana</span> in Workspace</li>
                     <li>Built first <span class="highlight">Editing Agents</span> for autonomous video creation</li>
                     <li>Opened <span class="highlight">DeepMind research</span> areas for AI video roadmap</li>
@@ -400,7 +771,7 @@
                 </div>
                 <ul>
                     <li><span class="highlight">Product lead</span> for GenAI Music across <span class="highlight">FAIR</span> and product org</li>
-                    <li>Published <span class="highlight">MusicGen</span> research, secured <span class="highlight">$20M+</span> training budget</li>
+                    <li>Published <span class="highlight">MusicGen</span> research, secured <span class="highlight metric">$20M+</span> training budget</li>
                     <li>Landed <span class="highlight">3 AI Music pitches</span> for Instagram, Glasses, and Ads</li>
                     <li>Recorded <span class="highlight">human+AI album</span> with billboard artist</li>
                 </ul>
@@ -422,9 +793,9 @@
                     <span class="dates">2020 – 2022</span>
                 </div>
                 <ul>
-                    <li>Built <span class="highlight">0-to-1</span> SMB Lending — MVP in 6mo, <span class="highlight">$2.5B</span> projected ARR</li>
-                    <li>Redesigned <span class="highlight">$1B+ Ads billing</span> to unify global payments</li>
-                    <li>Launched Flex Billing — <span class="highlight">+$250M ARR</span> at &lt;3% leakage</li>
+                    <li>Built <span class="highlight">0-to-1</span> SMB Lending — MVP in 6mo, <span class="highlight metric">$2.5B</span> projected ARR</li>
+                    <li>Redesigned <span class="highlight metric">$1B+ Ads billing</span> to unify global payments</li>
+                    <li>Launched Flex Billing — <span class="highlight metric">+$250M ARR</span> at &lt;3% leakage</li>
                 </ul>
             </article>
 
@@ -447,71 +818,77 @@
                     <li><span class="highlight">PM lead</span> for AKS — <span class="highlight">fastest growing</span>, now <span class="highlight">largest</span> Azure service</li>
                     <li>Led AKS to <span class="highlight">Gartner "Leader"</span> with EKS/GKE parity</li>
                     <li>Launched <span class="highlight">0-to-1</span>: <span class="highlight">Container Instances</span> + <span class="highlight">Cloud Shell</span></li>
-                    <li>Shipped both to <span class="highlight">GA</span> across <span class="highlight">20+ regions</span></li>
+                    <li>Shipped both to <span class="highlight">GA</span> across <span class="highlight metric">20+ regions</span></li>
                 </ul>
             </article>
         </section>
 
         <!-- Education -->
-        <div class="edu">
+        <div class="edu reveal">
             <h2>Education</h2>
             <span>B.S. Computer Science, Georgia Tech</span>
         </div>
 
         <!-- Things I've Launched -->
-        <section class="launched">
+        <section class="launched reveal" id="launched">
             <h2>Things I've Launched</h2>
             <div class="launched-grid">
                 <!-- Google -->
                 <a href="https://workspace.google.com/products/vids/" target="_blank" rel="noopener" class="launched-item">
-                    <img src="screenshots/vids.png" alt="Google Vids" class="launched-screenshot">
+                    <img src="screenshots/vids.png" alt="Google Vids - AI video creation for Google Workspace" class="launched-screenshot" loading="lazy">
                     <span class="launched-company">Google</span>
                     <span class="launched-name">Vids</span>
                     <span class="launched-desc">AI-powered video creation for Workspace</span>
+                    <span class="launched-impact">First new Workspace product in 10 years</span>
                 </a>
 
                 <!-- Meta -->
                 <a href="https://audiocraft.metademolab.com/musicgen.html" target="_blank" rel="noopener" class="launched-item">
-                    <img src="screenshots/musicgen.png" alt="MusicGen" class="launched-screenshot">
+                    <img src="screenshots/musicgen.webp" alt="MusicGen - AI music generation by Meta FAIR" class="launched-screenshot" loading="lazy">
                     <span class="launched-company">Meta</span>
                     <span class="launched-name">MusicGen</span>
                     <span class="launched-desc">Controllable AI music generation</span>
+                    <span class="launched-impact">$20M+ research budget secured</span>
                 </a>
                 <a href="https://www.facebook.com/business/help/1814143615511573?id=1792465934137726" target="_blank" rel="noopener" class="launched-item">
-                    <img src="screenshots/ads-billing.png" alt="Ads Post-Pay Billing" class="launched-screenshot">
+                    <img src="screenshots/ads-billing.webp" alt="Meta Ads Post-Pay Billing - flexible payment for advertisers" class="launched-screenshot" loading="lazy">
                     <span class="launched-company">Meta</span>
                     <span class="launched-name">Ads Post-Pay Billing</span>
                     <span class="launched-desc">Flexible payment for advertisers</span>
+                    <span class="launched-impact">+$250M ARR</span>
                 </a>
 
                 <!-- Microsoft -->
                 <a href="https://azure.microsoft.com/en-us/products/kubernetes-service" target="_blank" rel="noopener" class="launched-item">
-                    <img src="screenshots/aks-cap.png" alt="Azure Kubernetes Service" class="launched-screenshot">
+                    <img src="screenshots/aks-cap.webp" alt="Azure Kubernetes Service - managed Kubernetes at scale" class="launched-screenshot" loading="lazy">
                     <span class="launched-company">Microsoft</span>
                     <span class="launched-name">Azure Kubernetes Service</span>
                     <span class="launched-desc">Managed Kubernetes at scale</span>
+                    <span class="launched-impact">Largest Azure service</span>
                 </a>
                 <a href="https://azure.microsoft.com/en-us/products/container-instances/" target="_blank" rel="noopener" class="launched-item">
-                    <img src="screenshots/aci-cap.png" alt="Container Instances" class="launched-screenshot">
+                    <img src="screenshots/aci-cap.webp" alt="Azure Container Instances - serverless containers" class="launched-screenshot" loading="lazy">
                     <span class="launched-company">Microsoft</span>
                     <span class="launched-name">Container Instances</span>
                     <span class="launched-desc">Serverless containers on Azure</span>
+                    <span class="launched-impact">0-to-1, GA across 20+ regions</span>
                 </a>
                 <a href="https://azure.microsoft.com/en-us/get-started/azure-portal/cloud-shell" target="_blank" rel="noopener" class="launched-item">
-                    <img src="screenshots/cloudshell.png" alt="Cloud Shell" class="launched-screenshot">
+                    <img src="screenshots/cloudshell.webp" alt="Azure Cloud Shell - browser-based CLI" class="launched-screenshot" loading="lazy">
                     <span class="launched-company">Microsoft</span>
                     <span class="launched-name">Cloud Shell</span>
                     <span class="launched-desc">Browser-based Azure CLI</span>
+                    <span class="launched-impact">0-to-1, shipped at Build 2017</span>
                 </a>
             </div>
         </section>
 
         <!-- Talks -->
-        <section class="talks">
+        <section class="talks reveal" id="talks">
             <h2>Talks</h2>
             <div class="talks-grid">
                 <a href="https://www.youtube.com/watch?v=SdrZgziwlj4" target="_blank" class="talk-item">
-                    <img src="https://img.youtube.com/vi/SdrZgziwlj4/maxresdefault.jpg" alt="Starting a new PM role" class="talk-thumbnail">
+                    <img src="https://img.youtube.com/vi/SdrZgziwlj4/maxresdefault.jpg" alt="Starting a new PM role - Product School talk" class="talk-thumbnail" loading="lazy">
                     <span class="talk-title">Starting a new PM role</span>
                     <span class="talk-meta">
                         <span class="talk-event">Product School</span>
@@ -519,7 +896,7 @@
                     </span>
                 </a>
                 <a href="https://learn.microsoft.com/en-us/shows/azure-friday/preview-of-availability-zones-for-your-kubernetes-cluster-in-azure" target="_blank" class="talk-item">
-                    <img src="screenshots/aks.png" alt="AKS Availability Zones" class="talk-thumbnail">
+                    <img src="screenshots/aks.webp" alt="AKS Availability Zones - Azure Friday" class="talk-thumbnail" loading="lazy">
                     <span class="talk-title">AKS Availability Zones</span>
                     <span class="talk-meta">
                         <span class="talk-event">Azure Friday</span>
@@ -527,7 +904,7 @@
                     </span>
                 </a>
                 <a href="https://learn.microsoft.com/en-us/shows/build-2018/thr2007" target="_blank" class="talk-item">
-                    <img src="screenshots/build.png" alt="Running container instances" class="talk-thumbnail">
+                    <img src="screenshots/build.webp" alt="Running container instances - Microsoft Build 2018" class="talk-thumbnail" loading="lazy">
                     <span class="talk-title">Running container instances</span>
                     <span class="talk-meta">
                         <span class="talk-event">Microsoft Build</span>
@@ -535,7 +912,7 @@
                     </span>
                 </a>
                 <a href="https://learn.microsoft.com/en-us/shows/azure-friday/azure-container-instances-ga-a-new-compute-primitive" target="_blank" class="talk-item">
-                    <img src="screenshots/aci.png" alt="Azure Container Instances" class="talk-thumbnail">
+                    <img src="screenshots/aci.webp" alt="Azure Container Instances GA - Azure Friday" class="talk-thumbnail" loading="lazy">
                     <span class="talk-title">Azure Container Instances</span>
                     <span class="talk-meta">
                         <span class="talk-event">Azure Friday</span>
@@ -543,7 +920,7 @@
                     </span>
                 </a>
                 <a href="https://www.youtube.com/watch?v=evhpuRjHkjk" target="_blank" class="talk-item">
-                    <img src="https://img.youtube.com/vi/evhpuRjHkjk/maxresdefault.jpg" alt="Azure Cloud Shell" class="talk-thumbnail">
+                    <img src="https://img.youtube.com/vi/evhpuRjHkjk/maxresdefault.jpg" alt="Azure Cloud Shell demo - Azure Friday" class="talk-thumbnail" loading="lazy">
                     <span class="talk-title">Azure Cloud Shell</span>
                     <span class="talk-meta">
                         <span class="talk-event">Azure Friday</span>
@@ -554,7 +931,7 @@
         </section>
 
         <!-- Projects & Writing -->
-        <section class="projects">
+        <section class="projects reveal">
             <h2>Projects & Writing</h2>
             <div class="project-list">
                 <a href="https://medium.com/@justinluk" target="_blank" rel="noopener" class="project-link">
@@ -568,8 +945,28 @@
             </div>
         </section>
 
+        <!-- Contact -->
+        <section class="contact reveal" id="contact">
+            <h2>Get in touch</h2>
+            <p>Interested in working together or discussing AI product strategy?</p>
+            <nav class="contact-links">
+                <a href="https://linkedin.com/in/lukjustin" target="_blank" rel="noopener" class="contact-btn primary">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="https://twitter.com/whosjluk" target="_blank" rel="noopener" class="contact-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    Twitter
+                </a>
+            </nav>
+        </section>
+
         <!-- Beyond Work -->
-        <section class="interests">
+        <section class="interests reveal">
             <h2>2026 Personal Goals</h2>
             <div class="interests-grid">
                 <div class="interest-item">
@@ -610,30 +1007,10 @@
                 </div>
             </div>
         </section>
-
-        <!-- Contact -->
-        <section class="contact">
-            <h2>Get in touch</h2>
-            <p>Interested in working together or discussing AI product strategy?</p>
-            <nav class="contact-links">
-                <a href="https://linkedin.com/in/lukjustin" target="_blank" rel="noopener" class="contact-btn primary">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                    LinkedIn
-                </a>
-                <a href="https://twitter.com/whosjluk" target="_blank" rel="noopener" class="contact-btn">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                    Twitter
-                </a>
-            </nav>
-        </section>
     </main>
 
     <footer>
-        <p>&copy; 2025</p>
+        <p>&copy; 2026</p>
     </footer>
 
     <script>
@@ -714,6 +1091,143 @@
         // Setup both cards
         setupCardFlip(document.getElementById('pmCardFlip'), '.pm-card-inner');
         setupCardFlip(document.getElementById('jlukCardFlip'), '.jluk-card-inner');
+        setupCardFlip(document.getElementById('reconCardFlip'), '.recon-card-inner');
+        setupCardFlip(document.getElementById('cookedCardFlip'), '.cooked-card-inner');
+
+        // Scroll-triggered reveal animations
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Staggered children animation (for grids/lists)
+        const staggerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const children = entry.target.querySelectorAll('.launched-item, .talk-item, .role-entry, .interest-item, .project-link');
+                    children.forEach((child, i) => {
+                        child.style.transitionDelay = `${i * 0.08}s`;
+                        child.classList.add('stagger-in');
+                    });
+                    staggerObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.launched-grid, .talks-grid, .experience, .interests-grid, .project-list').forEach(el => {
+            staggerObserver.observe(el);
+        });
+
+        // Progress nav - highlight active section on scroll
+        const progressDots = document.querySelectorAll('.progress-dot');
+        const navSections = Array.from(progressDots).map(dot => ({
+            dot,
+            section: document.getElementById(dot.dataset.section)
+        })).filter(s => s.section);
+
+        function updateActiveNav() {
+            const scrollY = window.scrollY;
+            const viewportMiddle = scrollY + window.innerHeight * 0.35;
+            const atBottom = (window.innerHeight + scrollY) >= (document.body.scrollHeight - 50);
+
+            // If at bottom of page, activate the last dot
+            if (atBottom) {
+                progressDots.forEach(d => d.classList.remove('active'));
+                navSections[navSections.length - 1].dot.classList.add('active');
+                return;
+            }
+
+            // Find which section the viewport middle is inside
+            let activeIndex = -1;
+            for (let i = navSections.length - 1; i >= 0; i--) {
+                const rect = navSections[i].section.getBoundingClientRect();
+                const sectionTop = rect.top + scrollY;
+                if (viewportMiddle >= sectionTop) {
+                    activeIndex = i;
+                    break;
+                }
+            }
+
+            progressDots.forEach(d => d.classList.remove('active'));
+            if (activeIndex >= 0) navSections[activeIndex].dot.classList.add('active');
+        }
+
+        // Smooth scroll for progress nav
+        progressDots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.getElementById(dot.dataset.section);
+                if (target) {
+                    const y = target.getBoundingClientRect().top + window.scrollY - 30;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Show/hide progress nav + update active dot
+        const progressNav = document.getElementById('progressNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                progressNav.classList.add('visible');
+            } else {
+                progressNav.classList.remove('visible');
+            }
+            updateActiveNav();
+        }, { passive: true });
+
+        // Initial check
+        updateActiveNav();
+
+        // Animated counters in hero
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.hero-stat-number').forEach(el => {
+                        const target = parseFloat(el.dataset.target);
+                        const prefix = el.dataset.prefix || '';
+                        const suffix = el.dataset.suffix || '';
+                        const isFloat = target % 1 !== 0;
+                        const duration = 1500;
+                        const start = performance.now();
+
+                        function tick(now) {
+                            const elapsed = now - start;
+                            const progress = Math.min(elapsed / duration, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            const current = eased * target;
+                            el.textContent = prefix + (isFloat ? current.toFixed(1) : Math.round(current)) + suffix;
+                            if (progress < 1) requestAnimationFrame(tick);
+                        }
+                        requestAnimationFrame(tick);
+                    });
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const heroStats = document.querySelector('.hero-stats');
+        if (heroStats) counterObserver.observe(heroStats);
+
+        // Dark/Light mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') document.documentElement.classList.add('light-mode');
+
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('light-mode');
+            const isLight = document.documentElement.classList.contains('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
     </script>
+
+    <!-- Analytics: Cloudflare Web Analytics (free, no cookies, privacy-friendly) -->
+    <!-- To activate: sign up at cloudflare.com/web-analytics, add your site, and replace YOUR_TOKEN below -->
+    <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_TOKEN"}'></script> -->
 </body>
 </html>

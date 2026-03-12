@@ -38,16 +38,23 @@ CSS variables in `:root`:
 
 ## Key Sections
 
-Hero → About → Building Now (projects) → Experience (CV) → Education → Things I've Launched → Projects & Writing → 2026 Personal Goals → Contact
+Hero → Building Now (projects) → Experience (CV) → Education → Things I've Launched → Talks → Projects & Writing → Contact → 2026 Personal Goals
 
 ## Fixed UI Elements
 
 - **Social sidebar** (`.social-sidebar`) - Fixed left side, LinkedIn/X/GitHub icons, hidden on mobile
 - **Music player** (`.music-player`) - Fixed bottom-right, MySpace-style audio toggle
+- **Theme toggle** - Fixed top-right, sun/moon dark/light mode switch with localStorage persistence
+- **Progress nav** (`.progress-nav`) - Fixed right side dots for section navigation, hidden on mobile
 
 ## Interactive Trading Cards
 
-"Building Now" section features Pokemon-style trading cards instead of screenshots:
+"Building Now" section features a 2x2 grid of Pokemon-style trading cards:
+
+### Recon Card (`.recon-card-*`)
+- Blue/Intelligence theme (#3b82f6, #2563eb)
+- Front: "Deep Scan" and "Instant Brief" moves, In Progress status
+- Back: Intel score, AI-powered research assistant branding
 
 ### PM Roast Card (`.pm-card-*`)
 - Pink/Vision theme (#ec4899, #db2777)
@@ -61,6 +68,11 @@ Hero → About → Building Now (projects) → Experience (CV) → Education →
 - Back: "Built by Justin Luk", vibe score
 - Image: `screenshots/justin.jpeg`
 
+### Cooked Card (`.cooked-card-*`)
+- Orange/Fire theme (#f97316, #ea580c)
+- Front: "Face Swap" and "Quick Roast" moves, In Progress status
+- Back: Roast score, AI + InsightFace branding
+
 ### Card Interactions (vanilla JS)
 - **Click to flip** - 3D flip animation between front/back
 - **Hover tilt** - 3D perspective tilt following mouse position
@@ -68,8 +80,8 @@ Hero → About → Building Now (projects) → Experience (CV) → Education →
 - **Glow animation** - Pulsing background glow behind cards
 
 ### Card CSS Structure
-Each card has matching class prefixes (`.pm-card-*` or `.jluk-card-*`):
-- `-container` - Wrapper with glow effect
+Each card has matching class prefixes (`.recon-card-*`, `.pm-card-*`, `.jluk-card-*`, `.cooked-card-*`):
+- `-container` - Wrapper with glow effect and project link/description
 - `-flip` - Perspective container for 3D transforms
 - `-inner` - Transform target for flip animation
 - `-front` / `-back` - Card faces with backface-visibility
@@ -78,3 +90,8 @@ Each card has matching class prefixes (`.pm-card-*` or `.jluk-card-*`):
 ## Background
 
 Animated forest gradient (`.bg-gradient`) with subtle green shades against near-black, using layered pseudo-elements for shimmer effects.
+
+## TODOs
+
+- [ ] **Analytics setup**: Uncomment the Cloudflare Web Analytics script near the bottom of `index.html` and replace `YOUR_TOKEN` with your site token. Alternatively, sign up for GoatCounter (goatcounter.com) or Plausible (plausible.io) and swap the script tag. All three are privacy-friendly and cookieless.
+- [ ] **AI training bot blocking**: Add `User-agent: GPTBot`, `User-agent: Google-Extended`, `User-agent: CCBot`, etc. with `Disallow: /` to `robots.txt` to opt out of AI training crawlers.
