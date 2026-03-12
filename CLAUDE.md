@@ -25,7 +25,9 @@ Push to `main` branch - GitHub Pages auto-deploys.
 - `index.html` - Single-page portfolio with all content and inline JavaScript
 - `styles.css` - All styling including CSS variables, animations, responsive design
 - `music.mp3` - Background audio for MySpace-style music player
-- `screenshots/` - Card images (your-pm-card.png, justin.jpeg)
+- `screenshots/` - Card and project images (WebP format, plus recon.png and cooked.png)
+- `robots.txt` - Crawler rules and sitemap reference
+- `sitemap.xml` - Site map for search engines
 - `CNAME` - Custom domain configuration
 
 ## Design System
@@ -51,27 +53,31 @@ Hero → Building Now (projects) → Experience (CV) → Education → Things I'
 
 "Building Now" section features a 2x2 grid of Pokemon-style trading cards:
 
+Card order in grid (2x2): Recon → Cooked → PM Roast → Personal Site
+
 ### Recon Card (`.recon-card-*`)
 - Blue/Intelligence theme (#3b82f6, #2563eb)
-- Front: "Deep Scan" and "Instant Brief" moves, In Progress status
-- Back: Intel score, AI-powered research assistant branding
-
-### PM Roast Card (`.pm-card-*`)
-- Pink/Vision theme (#ec4899, #db2777)
-- Front: Card stats, moves, flavor text, pmroast.com branding
-- Back: PM ROAST badge, archetype reveal, career score
-- Image: `screenshots/your-pm-card.png`
-
-### Personal Site Card (`.jluk-card-*`)
-- Purple/Strategy theme (#8b5cf6, #7c3aed)
-- Front: "Ship It" and "Vibe Code" moves, jluk.me branding
-- Back: "Built by Justin Luk", vibe score
-- Image: `screenshots/justin.jpeg`
+- Front: "Deep Scan" and "Cross-Reference" moves, In Progress status
+- Back: Intel score, Claude API branding
+- Image: `screenshots/recon.png`
 
 ### Cooked Card (`.cooked-card-*`)
 - Orange/Fire theme (#f97316, #ea580c)
 - Front: "Face Swap" and "Quick Roast" moves, In Progress status
 - Back: Roast score, AI + InsightFace branding
+- Image: `screenshots/cooked.png`
+
+### PM Roast Card (`.pm-card-*`)
+- Pink/Vision theme (#ec4899, #db2777)
+- Front: Card stats, moves, flavor text, pmroast.com branding
+- Back: PM ROAST badge, archetype reveal, career score
+- Image: `screenshots/your-pm-card.webp`
+
+### Personal Site Card (`.jluk-card-*`)
+- Purple/Strategy theme (#8b5cf6, #7c3aed)
+- Front: "Ship It" and "Vibe Code" moves, jluk.me branding
+- Back: "Built by Justin Luk", vibe score
+- Image: `screenshots/justin.webp`
 
 ### Card Interactions (vanilla JS)
 - **Click to flip** - 3D flip animation between front/back
@@ -93,5 +99,5 @@ Animated forest gradient (`.bg-gradient`) with subtle green shades against near-
 
 ## TODOs
 
-- [ ] **Analytics setup**: Uncomment the Cloudflare Web Analytics script near the bottom of `index.html` and replace `YOUR_TOKEN` with your site token. Alternatively, sign up for GoatCounter (goatcounter.com) or Plausible (plausible.io) and swap the script tag. All three are privacy-friendly and cookieless.
+- [ ] **Analytics setup**: Uncomment the Cloudflare Web Analytics script near the bottom of `index.html` and replace `YOUR_TOKEN` with your site token. Alternatively, sign up for GoatCounter (goatcounter.com) or Plausible (plausible.io) and swap the script tag. All three are privacy-friendly and cookieless. Consider adding Microsoft Clarity for heatmaps and session recordings.
 - [ ] **AI training bot blocking**: Add `User-agent: GPTBot`, `User-agent: Google-Extended`, `User-agent: CCBot`, etc. with `Disallow: /` to `robots.txt` to opt out of AI training crawlers.
