@@ -71,8 +71,9 @@
     <!-- Progress nav -->
     <nav class="progress-nav" id="progressNav">
         <a href="#building" class="progress-dot" data-section="building" aria-label="Building Now"><span class="progress-label">Building</span></a>
-        <a href="#experience" class="progress-dot" data-section="experience" aria-label="Experience"><span class="progress-label">Experience</span></a>
+        <a href="#writing" class="progress-dot" data-section="writing" aria-label="Writing"><span class="progress-label">Writing</span></a>
         <a href="#launched" class="progress-dot" data-section="launched" aria-label="Launched"><span class="progress-label">Launched</span></a>
+        <a href="#experience" class="progress-dot" data-section="experience" aria-label="Experience"><span class="progress-label">Experience</span></a>
         <a href="#talks" class="progress-dot" data-section="talks" aria-label="Talks"><span class="progress-label">Talks</span></a>
         <a href="#contact" class="progress-dot" data-section="contact" aria-label="Contact"><span class="progress-label">Contact</span></a>
     </nav>
@@ -136,7 +137,7 @@
             <div class="hero-stats">
                 <div class="hero-stat">
                     <span class="hero-stat-number" data-target="10" data-suffix="+">0</span>
-                    <span class="hero-stat-label">Years in AI</span>
+                    <span class="hero-stat-label">Years in PM</span>
                 </div>
                 <div class="hero-stat">
                     <span class="hero-stat-number" data-target="6">0</span>
@@ -148,7 +149,7 @@
                 </div>
             </div>
             <div class="hero-logos">
-                <span class="hero-logos-label">Previously at</span>
+                <span class="hero-logos-label">Worked at</span>
                 <div class="hero-logos-row">
                     <span class="hero-logo-item">
                         <svg viewBox="0 0 24 24" fill="currentColor" class="hero-logo-svg google-logo">
@@ -723,6 +724,75 @@
             </div>
         </section>
 
+        <!-- Projects & Writing -->
+        <section class="projects reveal" id="writing">
+            <h2>Writing</h2>
+            <div class="project-list">
+                <a href="writing/autoresearch/index.html" class="project-link">
+                    <span class="project-name">Karpathy's Autoresearch: Self-Directed AI Research While You Sleep</span>
+                    <span class="project-desc">What it does, why it matters, and what comes next for self-improving AI research loops</span>
+                </a>
+                <a href="https://medium.com/@justinluk" target="_blank" rel="noopener" class="project-link">
+                    <span class="project-name">Writing on Medium</span>
+                    <span class="project-desc">Essays on product management, AI, and building at scale</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Things I've Launched -->
+        <section class="launched reveal" id="launched">
+            <h2>Things I've Launched</h2>
+            <div class="launched-grid">
+                <!-- Google -->
+                <a href="https://workspace.google.com/products/vids/" target="_blank" rel="noopener" class="launched-item">
+                    <img src="screenshots/vids.png" alt="Google Vids - AI video creation for Google Workspace" class="launched-screenshot" loading="lazy">
+                    <span class="launched-company">Google</span>
+                    <span class="launched-name">Vids</span>
+                    <span class="launched-desc">AI-powered video creation for Workspace</span>
+                    <span class="launched-impact">First new Workspace product in 10 years</span>
+                </a>
+
+                <!-- Meta -->
+                <a href="https://audiocraft.metademolab.com/musicgen.html" target="_blank" rel="noopener" class="launched-item">
+                    <img src="screenshots/musicgen.webp" alt="MusicGen - AI music generation by Meta FAIR" class="launched-screenshot" loading="lazy">
+                    <span class="launched-company">Meta</span>
+                    <span class="launched-name">MusicGen</span>
+                    <span class="launched-desc">Controllable AI music generation</span>
+                    <span class="launched-impact">$20M+ research budget secured</span>
+                </a>
+                <a href="https://www.facebook.com/business/help/1814143615511573?id=1792465934137726" target="_blank" rel="noopener" class="launched-item">
+                    <img src="screenshots/ads-billing.webp" alt="Meta Ads Post-Pay Billing - flexible payment for advertisers" class="launched-screenshot" loading="lazy">
+                    <span class="launched-company">Meta</span>
+                    <span class="launched-name">Ads Post-Pay Billing</span>
+                    <span class="launched-desc">Flexible payment for advertisers</span>
+                    <span class="launched-impact">+$250M ARR</span>
+                </a>
+
+                <!-- Microsoft -->
+                <a href="https://azure.microsoft.com/en-us/products/kubernetes-service" target="_blank" rel="noopener" class="launched-item">
+                    <img src="screenshots/aks-cap.webp" alt="Azure Kubernetes Service - managed Kubernetes at scale" class="launched-screenshot" loading="lazy">
+                    <span class="launched-company">Microsoft</span>
+                    <span class="launched-name">Azure Kubernetes Service</span>
+                    <span class="launched-desc">Managed Kubernetes at scale</span>
+                    <span class="launched-impact">Largest Azure service</span>
+                </a>
+                <a href="https://azure.microsoft.com/en-us/products/container-instances/" target="_blank" rel="noopener" class="launched-item">
+                    <img src="screenshots/aci-cap.webp" alt="Azure Container Instances - serverless containers" class="launched-screenshot" loading="lazy">
+                    <span class="launched-company">Microsoft</span>
+                    <span class="launched-name">Container Instances</span>
+                    <span class="launched-desc">Serverless containers on Azure</span>
+                    <span class="launched-impact">0-to-1, GA across 20+ regions</span>
+                </a>
+                <a href="https://azure.microsoft.com/en-us/get-started/azure-portal/cloud-shell" target="_blank" rel="noopener" class="launched-item">
+                    <img src="screenshots/cloudshell.webp" alt="Azure Cloud Shell - browser-based CLI" class="launched-screenshot" loading="lazy">
+                    <span class="launched-company">Microsoft</span>
+                    <span class="launched-name">Cloud Shell</span>
+                    <span class="launched-desc">Browser-based Azure CLI</span>
+                    <span class="launched-impact">0-to-1, shipped at Build 2017</span>
+                </a>
+            </div>
+        </section>
+
         <!-- Experience -->
         <section class="experience reveal" id="experience">
             <h2>Experience</h2>
@@ -823,66 +893,6 @@
             </article>
         </section>
 
-        <!-- Education -->
-        <div class="edu reveal">
-            <h2>Education</h2>
-            <span>B.S. Computer Science, Georgia Tech</span>
-        </div>
-
-        <!-- Things I've Launched -->
-        <section class="launched reveal" id="launched">
-            <h2>Things I've Launched</h2>
-            <div class="launched-grid">
-                <!-- Google -->
-                <a href="https://workspace.google.com/products/vids/" target="_blank" rel="noopener" class="launched-item">
-                    <img src="screenshots/vids.png" alt="Google Vids - AI video creation for Google Workspace" class="launched-screenshot" loading="lazy">
-                    <span class="launched-company">Google</span>
-                    <span class="launched-name">Vids</span>
-                    <span class="launched-desc">AI-powered video creation for Workspace</span>
-                    <span class="launched-impact">First new Workspace product in 10 years</span>
-                </a>
-
-                <!-- Meta -->
-                <a href="https://audiocraft.metademolab.com/musicgen.html" target="_blank" rel="noopener" class="launched-item">
-                    <img src="screenshots/musicgen.webp" alt="MusicGen - AI music generation by Meta FAIR" class="launched-screenshot" loading="lazy">
-                    <span class="launched-company">Meta</span>
-                    <span class="launched-name">MusicGen</span>
-                    <span class="launched-desc">Controllable AI music generation</span>
-                    <span class="launched-impact">$20M+ research budget secured</span>
-                </a>
-                <a href="https://www.facebook.com/business/help/1814143615511573?id=1792465934137726" target="_blank" rel="noopener" class="launched-item">
-                    <img src="screenshots/ads-billing.webp" alt="Meta Ads Post-Pay Billing - flexible payment for advertisers" class="launched-screenshot" loading="lazy">
-                    <span class="launched-company">Meta</span>
-                    <span class="launched-name">Ads Post-Pay Billing</span>
-                    <span class="launched-desc">Flexible payment for advertisers</span>
-                    <span class="launched-impact">+$250M ARR</span>
-                </a>
-
-                <!-- Microsoft -->
-                <a href="https://azure.microsoft.com/en-us/products/kubernetes-service" target="_blank" rel="noopener" class="launched-item">
-                    <img src="screenshots/aks-cap.webp" alt="Azure Kubernetes Service - managed Kubernetes at scale" class="launched-screenshot" loading="lazy">
-                    <span class="launched-company">Microsoft</span>
-                    <span class="launched-name">Azure Kubernetes Service</span>
-                    <span class="launched-desc">Managed Kubernetes at scale</span>
-                    <span class="launched-impact">Largest Azure service</span>
-                </a>
-                <a href="https://azure.microsoft.com/en-us/products/container-instances/" target="_blank" rel="noopener" class="launched-item">
-                    <img src="screenshots/aci-cap.webp" alt="Azure Container Instances - serverless containers" class="launched-screenshot" loading="lazy">
-                    <span class="launched-company">Microsoft</span>
-                    <span class="launched-name">Container Instances</span>
-                    <span class="launched-desc">Serverless containers on Azure</span>
-                    <span class="launched-impact">0-to-1, GA across 20+ regions</span>
-                </a>
-                <a href="https://azure.microsoft.com/en-us/get-started/azure-portal/cloud-shell" target="_blank" rel="noopener" class="launched-item">
-                    <img src="screenshots/cloudshell.webp" alt="Azure Cloud Shell - browser-based CLI" class="launched-screenshot" loading="lazy">
-                    <span class="launched-company">Microsoft</span>
-                    <span class="launched-name">Cloud Shell</span>
-                    <span class="launched-desc">Browser-based Azure CLI</span>
-                    <span class="launched-impact">0-to-1, shipped at Build 2017</span>
-                </a>
-            </div>
-        </section>
-
         <!-- Talks -->
         <section class="talks reveal" id="talks">
             <h2>Talks</h2>
@@ -930,20 +940,11 @@
             </div>
         </section>
 
-        <!-- Projects & Writing -->
-        <section class="projects reveal">
-            <h2>Projects & Writing</h2>
-            <div class="project-list">
-                <a href="https://medium.com/@justinluk" target="_blank" rel="noopener" class="project-link">
-                    <span class="project-name">Writing on Medium</span>
-                    <span class="project-desc">Essays on product management, AI, and building at scale</span>
-                </a>
-                <a href="https://github.com/jluk" target="_blank" rel="noopener" class="project-link">
-                    <span class="project-name">GitHub</span>
-                    <span class="project-desc">Open source contributions including Azure docs and Resource Manager schemas</span>
-                </a>
-            </div>
-        </section>
+        <!-- Education -->
+        <div class="edu reveal">
+            <h2>Education</h2>
+            <span>B.S. Computer Science, Georgia Tech</span>
+        </div>
 
         <!-- Contact -->
         <section class="contact reveal" id="contact">
@@ -965,48 +966,6 @@
             </nav>
         </section>
 
-        <!-- Beyond Work -->
-        <section class="interests reveal">
-            <h2>2026 Personal Goals</h2>
-            <div class="interests-grid">
-                <div class="interest-item">
-                    <span class="interest-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M4 12h4l3-9 3 18 3-9h4"/>
-                        </svg>
-                    </span>
-                    <span class="interest-label">CrossFit</span>
-                    <span class="interest-desc">Next: RX Murph in 40m</span>
-                </div>
-                <div class="interest-item">
-                    <span class="interest-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="5.5" cy="17" r="2.5"/>
-                            <circle cx="18.5" cy="17" r="2.5"/>
-                            <path d="M15 6h-2l-1.5 4H6l-1 3h3l1.5 4h2.5"/>
-                            <path d="M10.5 10L12 6l4 4h2l1 3h-4"/>
-                            <path d="M8 17h8"/>
-                        </svg>
-                    </span>
-                    <span class="interest-label">Motorcycles</span>
-                    <span class="interest-desc">Next: Enduro across Mongolia</span>
-                </div>
-                <div class="interest-item">
-                    <span class="interest-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M8 21l4-10 4 10"/>
-                            <path d="M12 11V3"/>
-                            <path d="M9 6l3-3 3 3"/>
-                            <path d="M2 21h20"/>
-                            <path d="M5 21l3-6"/>
-                            <path d="M19 21l-3-6"/>
-                        </svg>
-                    </span>
-                    <span class="interest-label">Backpacking</span>
-                    <span class="interest-desc">Next: Summit Kilimanjaro</span>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer>
