@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            width: 1200px;
+            height: 630px;
+            display: flex;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow: hidden;
+        }
+        .container {
+            width: 1200px;
+            height: 630px;
+            padding: 48px 72px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+        /* Subtle gradient accent */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #93c5fd, #34d399);
+        }
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .tag {
+            font-size: 16px;
+            font-weight: 500;
+            color: #34d399;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .read-time {
+            font-size: 16px;
+            color: #919191;
+        }
+        .title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            max-width: 900px;
+        }
+        .bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #2a2a2a;
+            border: 2px solid #404040;
+        }
+        .author-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .author-name {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .author-handle {
+            font-size: 15px;
+            color: #919191;
+        }
+        .domain {
+            font-size: 18px;
+            color: #919191;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <span class="tag">AI Research</span>
+            <span class="read-time">8 min read</span>
+        </div>
+        <div class="title">Karpathy's Autoresearch: Self-Directed AI Research While You Sleep</div>
+        <div class="bottom">
+            <div class="author">
+                <img class="avatar" src="../../screenshots/justin.jpeg">
+                <div class="author-text">
+                    <span class="author-name">Justin Luk</span>
+                    <span class="author-handle">@whosjluk</span>
+                </div>
+            </div>
+            <span class="domain">jluk.me</span>
+        </div>
+    </div>
+</body>
+</html>
