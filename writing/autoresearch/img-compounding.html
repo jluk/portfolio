@@ -39,10 +39,10 @@
             font-weight: 500;
         }
         .y-label {
-            top: -8px;
-            left: -8px;
-            transform: rotate(-90deg) translateX(-100%);
-            transform-origin: top left;
+            top: 50%;
+            left: -32px;
+            transform: rotate(-90deg) translateX(50%);
+            transform-origin: center center;
         }
         .x-label { bottom: -32px; right: 0; }
 
@@ -94,7 +94,7 @@
         }
 
         .stats {
-            width: 260px;
+            width: 300px;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -104,7 +104,7 @@
             border-left: 2px solid #e5e7eb;
         }
         .stat-value {
-            font-size: 48px;
+            font-size: 40px;
             font-weight: 700;
             color: #111;
             line-height: 1;
@@ -127,7 +127,7 @@
     <div class="chart-area">
         <div class="chart-title">Compounding Gains</div>
         <div class="chart" id="chart">
-            <span class="axis-label y-label">Better BPB</span>
+            <span class="axis-label y-label">Performance</span>
             <span class="axis-label x-label">Experiments →</span>
 
             <div class="grid-line" style="bottom: 25%;"></div>
@@ -196,7 +196,7 @@
             <div class="stat-label">reverted</div>
         </div>
         <div>
-            <div class="stat-value">1.28<br><span class="unit">→</span> 1.06</div>
+            <div class="stat-value">1.28 <span class="unit">→</span> 1.06</div>
             <div class="stat-label">BPB improvement</div>
         </div>
     </div>

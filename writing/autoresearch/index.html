@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karpathy's Autoresearch: Self-Directed AI Research While You Sleep | Justin Luk</title>
+    <title>Karpathy's 630-Line Script That Outperformed Its Creator | Justin Luk</title>
     <meta name="description" content="A clear explanation of Karpathy's autoresearch project — what it does, why it matters, and what comes next for self-improving AI research loops.">
     <link rel="canonical" href="https://jluk.me/writing/autoresearch/">
     <!-- Open Graph -->
-    <meta property="og:title" content="Karpathy's Autoresearch: Self-Directed AI Research While You Sleep">
+    <meta property="og:title" content="Karpathy's 630-Line Script That Outperformed Its Creator">
     <meta property="og:description" content="A clear explanation of Karpathy's autoresearch project — what it does, why it matters, and what comes next for self-improving AI research loops.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://jluk.me/writing/autoresearch/">
@@ -15,7 +15,7 @@
     <meta property="article:author" content="Justin Luk">
     <meta property="article:published_time" content="2026-03-12">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Karpathy's Autoresearch: Self-Directed AI Research While You Sleep">
+    <meta name="twitter:title" content="Karpathy's 630-Line Script That Outperformed Its Creator">
     <meta name="twitter:description" content="A clear explanation of Karpathy's autoresearch — what it does, why it matters, and what comes next.">
     <meta name="twitter:image" content="https://jluk.me/writing/autoresearch/og-image.png">
     <meta name="twitter:creator" content="@whosjluk">
@@ -30,7 +30,7 @@
     {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Karpathy's Autoresearch: Self-Directed AI Research While You Sleep",
+        "headline": "Karpathy's 630-Line Script That Outperformed Its Creator",
         "author": {
             "@type": "Person",
             "name": "Justin Luk",
@@ -471,13 +471,13 @@
 
     <article class="article-container">
         <header class="article-header">
-            <h1>Karpathy's Autoresearch: Self-Directed AI Research While You Sleep</h1>
+            <h1>Karpathy's 630-Line Script That Outperformed Its Creator</h1>
             <div class="article-meta">
                 <span>Justin Luk</span>
                 <span>&middot;</span>
                 <span>March 12, 2026</span>
                 <span>&middot;</span>
-                <span>8 min read</span>
+                <span>5 min read</span>
                 <span>&middot;</span>
                 <button class="like-btn" onclick="toggleLike()" aria-label="Like this article">
                     <span class="like-heart">♡</span>
@@ -486,60 +486,54 @@
         </header>
 
         <div class="article-content">
-            <p><a href="https://x.com/karpathy">Andrej Karpathy</a> released a project called <a href="https://github.com/karpathy/autoresearch">autoresearch</a> that lets an AI agent autonomously modify ML training code, run experiments, evaluate results, and iterate — in a loop, unattended, overnight. It actually works and improved a very strong baseline approach.</p>
+            <p>Give an AI agent permission to edit one file, a five-minute training budget, and a single instruction: "NEVER STOP." <a href="https://x.com/karpathy">Karpathy</a> built <a href="https://github.com/karpathy/autoresearch">autoresearch</a> on this premise — a loop that turns a single GPU into an overnight research lab. It works.</p>
 
-            <p>I think it's one of the more important things to come out of the AI tooling space this year, and it deserves a clear explanation for people who aren't neck-deep in ML Twitter. It will certainly be cited as obvious in hindsight, a mark of a great product.</p>
-
-            <img src="img-hero.png" alt="The Autoresearch Loop — 5 steps: Modify Code, Train 5 min, Measure BPB, Keep or Revert, Repeat" class="article-image-full">
+            <p>I think it's one of the more important things to come out of the AI tooling space this year (it's only March), and it deserves a clear explanation for people who aren't neck-deep in ML Twitter. It will certainly be cited as obvious in hindsight, a mark of a great product.</p>
 
             <h2>What is it</h2>
 
-            <p>The setup is relatively straightforward. There's a training script that builds and trains a small language model. An AI agent is given permission to modify that script — and only that script. Then it <a href="https://x.com/karpathy/status/2030371219518931079">loops</a>:</p>
+            <p>There's a training script for a small language model. An AI agent gets permission to modify that script — and only that script. Then it <a href="https://x.com/karpathy/status/2030371219518931079">loops</a>:</p>
 
             <ol>
                 <li><strong>Modify the code</strong> — architecture, hyperparameters, optimizer, model depth. Anything in the training script is fair game.</li>
-                <li><strong>Train for five minutes</strong> — defined by <a href="https://github.com/karpathy/autoresearch/blob/master/prepare.py#L31">wall-clock time</a>, not steps or epochs. This matters and I'll explain why.</li>
-                <li><strong>Measure validation loss</strong> — specifically <a href="https://github.com/karpathy/autoresearch/blob/master/prepare.py#L344-L350">bits per byte (bpb)</a>, a metric that's independent of vocabulary size, so you can compare across different tokenizer configurations fairly.</li>
-                <li><strong>Keep or revert</strong> — if bpb improved, the change is committed. If not, <a href="https://github.com/karpathy/autoresearch/blob/master/program.md#L104"><code>git reset</code></a>. Clean slate.</li>
-                <li><strong>Repeat</strong> — the agent's instructions <a href="https://github.com/karpathy/autoresearch/blob/master/program.md#L112">literally say "NEVER STOP."</a></li>
+                <li><strong>Train for five minutes</strong> — defined by <a href="https://github.com/karpathy/autoresearch/blob/c2450add72cc80317be1fe8111974b892da10944/prepare.py#L31">wall-clock time</a>, not steps or epochs.</li>
+                <li><strong>Measure validation loss</strong> — specifically <a href="https://github.com/karpathy/autoresearch/blob/c2450add72cc80317be1fe8111974b892da10944/prepare.py#L344-L350">bits per byte (bpb)</a>, a metric that's independent of vocabulary size, so you can compare across different tokenizer configurations fairly.</li>
+                <li><strong>Keep or revert</strong> — if bpb improved, the change is committed. If not, <a href="https://github.com/karpathy/autoresearch/blob/c2450add72cc80317be1fe8111974b892da10944/program.md#L104"><code>git reset</code></a>. Clean slate.</li>
+                <li><strong>Repeat</strong> — the agent's instructions <a href="https://github.com/karpathy/autoresearch/blob/c2450add72cc80317be1fe8111974b892da10944/program.md#L112">literally say "NEVER STOP."</a></li>
             </ol>
+
+            <img src="img-hero.png" alt="The Autoresearch Loop — 5 steps: Modify Code, Train 5 min, Measure BPB, Keep or Revert, Repeat" class="article-image-full">
 
             <p>You get twelve experiments per hour. Roughly a hundred overnight. You go to sleep and wake up to a log of everything the agent tried and a model that's measurably better than where it started.</p>
 
             <h2>Not your grandpa's hyperparameter tuning</h2>
 
-            <p>Automated hyperparameter search has existed for decades with grid search, random search, Bayesian optimization — all well-understood. However, those tools search within a space that a human defines. You have to set bounds on learning rate, batch size, maybe model width, and the system explores that finite box.</p>
+            <p>Grid search, random search, Bayesian optimization — they all search within bounds a human sets. You define ranges for learning rate, batch size, model width, and the system explores that box.</p>
 
-            <p>Autoresearch is very different because the agent modifies source code autonomously to restructure model architecture, introduce new techniques, change the optimizer, or rewrite the training loop. No predefined search space to limit it's scope, so tt operates closer to a researcher — read the code, form a hypothesis, change something, measure the outcome.</p>
+            <p>Autoresearch modifies source code. It can restructure the architecture, swap the optimizer, rewrite the training loop. No predefined search space. It operates like a researcher — read the code, form a hypothesis, change something, measure.</p>
 
             <img src="img-comparison.png" alt="Traditional hyperparameter search (bounded grid) vs Autoresearch source code modification (unbounded)" class="article-image">
 
-            <p>The gap between "search within bounds I set" and "modify the code itself" is the gap between minor optimization and research while I sleep.</p>
-
             <h2>You have five minutes, Mr. Agent</h2>
 
-            <p>If you measure experiments by training steps, your results are hardware-dependent. An H100 and a laptop would yield incomparable data. The five-minute wall-clock constraint makes results portable across hardware so the agent discovers what's optimal for whatever machine it's on.</p>
+            <p>If you measure by training steps, results are hardware-dependent — an H100 and a laptop yield incomparable data. Wall-clock time makes results portable. The agent discovers what's optimal for whatever machine it's on.</p>
 
-            <p>It also creates a valuable efficiency pressure, as a bloated model that trains slowly will lose to a lean model that converges fast. For production ML compute carries a cost so the speed of iteration compounds. This time budget encodes that requirement directly into the experiment loop.</p>
-
-            <p>Practically, five minutes means failed experiments are also cheap. The agent can take risks and it should as most ideas in ML research don't work. A system that can try a hundred of them overnight, cheaply, and keep only the wins produces high expected value with low downside per trial.</p>
+            <p>It also pressures efficiency. A bloated model that trains slowly loses to a lean one that converges fast. And five minutes means failed experiments are cheap — most ideas in ML don't work, so a system that tries a hundred overnight and keeps only the wins is exactly what you want.</p>
 
             <h2>Training code is Karpathy level</h2>
 
             <img src="img-baseline.png" alt="The baseline is Karpathy-level: MuonAdamW hybrid optimizer, sliding window attention, best-fit data packing, fast-fail on NaN" class="article-image">
 
-            <p>Worth noting: the baseline code the agent modifies is very strong (as you'd expect from Karpathy). The whole thing is <a href="https://github.com/karpathy/autoresearch/blob/master/train.py">~630 lines of Python</a> — minimal, but state-of-the-art.</p>
+            <p>The baseline is <a href="https://github.com/karpathy/autoresearch/blob/c2450add72cc80317be1fe8111974b892da10944/train.py">~630 lines of Python</a> — minimal, but state-of-the-art:</p>
 
-            <p>Here's what the baseline already does:</p>
+            <ol>
+                <li><strong><a href="https://github.com/karpathy/autoresearch/blob/c2450add72cc80317be1fe8111974b892da10944/train.py#L356">MuonAdamW hybrid optimizer</a></strong> — uses two different strategies to adjust the model's parameters during training. Muon (polar decomposition for orthogonality) handles the big weight matrices, AdamW handles everything else. Like having a different coaching style for sprinters vs. marathon runners on the same team.</li>
+                <li><strong><a href="https://github.com/karpathy/autoresearch/blob/c2450add72cc80317be1fe8111974b892da10944/train.py#L435">Sliding window attention</a></strong> — controls how much context the model considers when predicting the next word. Alternates full-context and local-context layers (SSSL pattern) so the model gets the big picture and local detail without paying full compute cost on every layer.</li>
+                <li><strong><a href="https://github.com/karpathy/autoresearch/blob/c2450add72cc80317be1fe8111974b892da10944/prepare.py#L278-L281">Best-fit data packing</a></strong> — training data normally gets padded with empty space to fill batches evenly. Autoresearch packs documents together for 100% token utilization. Every byte the GPU touches is real data.</li>
+                <li><strong><a href="https://github.com/karpathy/autoresearch/blob/c2450add72cc80317be1fe8111974b892da10944/train.py#L569-L572">Fast-fail on NaN</a></strong> — if the model's numbers explode mid-training (NaN loss), the run dies immediately instead of burning the remaining five minutes on a doomed experiment.</li>
+            </ol>
 
-            <ul>
-                <li><strong>A smarter way to learn from mistakes.</strong> When a neural network trains, it adjusts millions of numbers to get better at its task. The optimizer is the algorithm that decides <em>how</em> to adjust them. Most systems use one strategy for everything. Autoresearch uses a <a href="https://github.com/karpathy/autoresearch/blob/master/train.py#L356">hybrid</a> — one approach for the big matrices of numbers (where the math benefits from a technique called polar orthogonalization), and a different approach for everything else. It's like having a different coaching style for sprinters vs. marathon runners on the same team.</li>
-                <li><strong>Selective memory during reading.</strong> When a language model reads text, "attention" is how it decides which earlier words matter for predicting the next one. Full attention — looking at everything that came before — is expensive. Autoresearch <a href="https://github.com/karpathy/autoresearch/blob/master/train.py#L435">alternates layers</a> between full-context and short-context attention, so the model gets both the big picture and local detail without the full computational cost.</li>
-                <li><strong>Zero wasted data.</strong> Training data gets chopped into batches. Normally, shorter documents get padded with empty space to fill a batch evenly — like shipping half-empty boxes. Autoresearch <a href="https://github.com/karpathy/autoresearch/blob/master/prepare.py#L278-L281">packs documents together optimally</a>, hitting 100% utilization. Every token the GPU processes is real data. More learning per compute dollar.</li>
-                <li><strong>Fast-fail on bad experiments.</strong> If the model's numbers <a href="https://github.com/karpathy/autoresearch/blob/master/train.py#L569-L572">blow up mid-training</a> (NaN values, exploding loss), training stops immediately instead of burning the remaining five minutes on a doomed run.</li>
-            </ul>
-
-            <p>The agent is experimenting on a <strong>very</strong> well-engineered baseline. Improvements it finds are real improvements to SOTA knowledge, not artifacts of a weak starting point with improvements that are well-understood already.</p>
+            <p>The agent experiments on a strong baseline. Improvements it finds are real — not artifacts of a weak starting point.</p>
 
             <h2>Expected value math</h2>
 
@@ -547,44 +541,40 @@
 
             <p>Failed experiments cost five minutes of GPU time and nothing else — the code reverts automatically. Successful experiments compound as each improvement becomes the new baseline for the following run.</p>
 
-            <p>The early results speak for themselves.</p>
-
             <ol>
                 <li>Over two days, the agent <a href="https://venturebeat.com/technology/andrej-karpathys-new-open-source-autoresearch-lets-you-run-hundreds-of-ai">ran ~700 experiments and found ~20 real improvements</a>. Stacked together, time-to-GPT-2 dropped from 2.02 to 1.80 hours — an 11% speedup. The agent caught oversights in attention scaling and regularization that Karpathy himself had missed. One community member documented their overnight run where <a href="https://github.com/karpathy/autoresearch/discussions/43">7 of 35 experiments succeeded</a>, and the model improved by getting simpler.</li>
-                <li><a href="https://x.com/tobi/status/2030771823151853938">Shopify CEO Tobi Lutke</a> ran it overnight and woke up to an agent-optimized 0.8B model that outscored his previous 1.6B — a 19% improvement in validation scores. His reaction was "OK this thing is totally insane."</li>
+                <li><a href="https://x.com/tobi/status/2030771823151853938">Shopify CEO Tobi Lutke</a> ran it overnight and woke up to an agent-optimized 0.8B model that outscored his previous 1.6B — a 19% improvement in validation scores. His reaction was "OK this thing is totally insane." He then <a href="https://x.com/tobi/status/2032212531846971413">applied it to Shopify's Liquid template engine</a> — 53% faster parse+render, 61% fewer object allocations. Not an ML model. A production codebase.</li>
             </ol>
-
-            <p>If 10% of experiments produce a measurable gain, that's ten improvements overnight which compound on the last. Over a week, that's 70 improvements. While gains may be incremental per experiment, the compounding is significant. This is the same math that makes continuous integration incredibly valuable — small, frequent, validated changes accumulate into large differences. (Thanks calc3, for making me take the area of a donut.)</p>
 
             <img src="img-compounding.png" alt="Compounding gains over ~100 experiments — ~30% kept, ~70% reverted, BPB improves from 1.28 to 1.06" class="article-image">
 
+            <p>If 10% of experiments produce a gain, that's ten improvements per night, compounding on each other. Over a week, 70. Same math that makes CI valuable — small, frequent, validated changes accumulate into large differences. (Thanks calc 2, for making me take the area of a donut.)</p>
+
             <p>The <strong>cost of failure is bounded</strong> and the <strong>value of success is cumulative</strong>.</p>
 
-            <h2>Next will be scaling compute, time, memory and application domains</h2>
+            <h2>What comes next</h2>
 
-            <p>This is a single agent on a single GPU. The logical next steps:</p>
+            <p>This is a single agent on a single GPU. The logical next steps I see are:</p>
 
             <img src="img-swarm.png" alt="Evolution from single agent today, to agent swarm, to autonomous research lab" class="article-image">
 
-            <p><strong>1. Parallel agents across a cluster.</strong> Karpathy has already said the next step is <a href="https://x.com/karpathy/status/2030705271627284816">SETI@home-style massive collaboration</a>: "The goal is not to emulate a single PhD student, it's to emulate a research community of them." Multiple agents exploring different parts of the design space simultaneously, with a shared leaderboard of what's working. This is where throughput goes from a hundred experiments a night to thousands.</p>
+            <p><strong>1. Parallel agents.</strong> Karpathy's next step is <a href="https://x.com/karpathy/status/2030705271627284816">SETI@home-style collaboration</a>: "The goal is not to emulate a single PhD student, it's to emulate a research community of them." Already happening — on March 8–9, 35 agents on the Hyperspace network ran 333 experiments unattended.</p>
 
-            <p><strong>2. Smarter memory-led exploration.</strong> Right now the agent proposes changes based on its general knowledge of ML. Future versions will incorporate the history of what's already been tried — what worked, what didn't, and why. This moves the system from "informed trial and error" toward something closer to directed research with memory.</p>
+            <p><strong>2. Memory-led exploration.</strong> Right now the agent proposes changes from general ML knowledge. Future versions will track what's been tried, what worked, and why — moving from trial-and-error toward directed research.</p>
 
-            <p><strong>3. Longer budgets for deeper experiments.</strong> Some techniques only show their value after extended training. Five minutes is a good starting point for rapid iteration, but expanding to thirty-minute or hour-long runs would let the agent explore changes that need more time to converge.</p>
+            <p><strong>3. Longer time budgets.</strong> Some techniques only pay off after extended training. Expanding to 30-minute or hour-long runs opens up changes that need more time to converge.</p>
 
-            <p><strong>4. Application beyond language models.</strong> The loop structure — modify code, run experiment, measure outcome, keep or revert — is not specific to NLP. It applies anywhere you have a codified experiment and a measurable objective. Protein structure prediction, reinforcement learning reward shaping, compiler optimization. The pattern transfers. Community forks are already proving this out — there's an <a href="https://github.com/trevin-creator/autoresearch-mlx">Apple Silicon MLX port</a> and a <a href="https://github.com/jsegov/autoresearch-win-rtx">Windows RTX fork</a> expanding hardware support.</p>
+            <p><strong>4. Beyond language models.</strong> Modify code, measure outcome, keep or revert — this works anywhere you have a codified experiment and a metric. Lutke already proved it on <a href="https://x.com/tobi/status/2032212531846971413">Shopify's Liquid codebase</a>. Community forks include an <a href="https://github.com/trevin-creator/autoresearch-mlx">Apple Silicon MLX port</a> and a <a href="https://github.com/jsegov/autoresearch-win-rtx">Windows RTX fork</a>.</p>
 
             <h2>Conclusions & take-off velocity</h2>
 
-            <p>Recursive self-improvement (spooky) has been lauded by optimists (golden goose) and doomers (boogeyman). An AI that can make itself better, which makes it better at making itself better, and so on. It's usually framed as a theoretical concern or a far-future scenario.</p>
+            <p>Recursive self-improvement is usually framed as theoretical or far-future. Autoresearch may just be a working prototype as the agent doesn't modify its own weights, but it modifies the training process that produces them. </p>
 
-            <p>Autoresearch is honestly a working version of that loop. An AI agent improves the code that trains AI models with compounding results. While the agent doesn't modify its own weights directly — it modifies the training process that produces them. It's not skynet but the feedback loop is here for AI to improve how AI gets built.</p>
+            <p>The bottleneck in ML research has never been ideas but time to test them. This agent caught optimizations that a <strong>two-decade ML veteran missed</strong>. Not because it's smarter, it just had <strong>way more at-bats</strong>.</p>
 
-            <p>The bottleneck in ML research has never been ideas, but time and attention to test them. A researcher can maybe run a handful of meaningful experiments in a day, while this system runs a hundred overnight. This agent already caught optimizations that a <strong>brilliant two-decade veteran of ML missed</strong>. Not because the agent is smarter — because it has <strong>more attempts at-bat</strong>.</p>
+            <p>This doesn't replace researchers, but it does provide caffeine-charged never sleeping interns that run a hundred experiments while they sleep. You design the loop, set the constraints, evaluate the trajectory.</p>
 
-            <p>No, this doesn't replace researchers. It does supercharge their effective output though. Instead of running experiments, you define the bounds for your caffeine-charged intern. You design the loop, set the constraints, and evaluate the trajectory.</p>
-
-            <p>This is a for-loop with really good taste. And it's the special kind of project that looks small in the moment and obvious in hindsight. A loop, a metric, and an agent with permission to edit code. The rest is compute and time.</p>
+            <p>A for-loop with <strong><em>really good taste</em></strong>. The kind of project that looks small now, but is obvious in hindsight. One loop, one metric, one agent with permission to edit code. The rest is compute and time.</p>
         </div>
 
         <div class="share-section">
@@ -630,7 +620,7 @@
         // Share buttons
         (function() {
             const url = 'https://jluk.me/writing/autoresearch/';
-            const title = "Karpathy's Autoresearch: Self-Directed AI Research While You Sleep";
+            const title = "Karpathy's 630-Line Script That Outperformed Its Creator";
             const text = title + ' by @whosjluk';
 
             document.getElementById('share-x').href =
