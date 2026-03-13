@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            width: 1200px;
+            height: 630px;
+            background: #111;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 24px;
+            overflow: hidden;
+            padding: 48px 56px;
+            color: #fff;
+        }
+        .card {
+            border-radius: 16px;
+            padding: 36px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .c1 { background: #1a1a2e; border: 1.5px solid rgba(37, 99, 235, 0.25); }
+        .c2 { background: #1a1a2a; border: 1.5px solid rgba(124, 58, 237, 0.25); }
+        .c3 { background: #1a2a1a; border: 1.5px solid rgba(52, 211, 153, 0.25); }
+        .c4 { background: #2a1a1a; border: 1.5px solid rgba(239, 68, 68, 0.25); }
+
+        .card-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+        .c1 .card-title { color: #93c5fd; }
+        .c2 .card-title { color: #c084fc; }
+        .c3 .card-title { color: #34d399; }
+        .c4 .card-title { color: #f87171; }
+
+        .card-desc {
+            font-size: 17px;
+            color: #888;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="card c1">
+        <div class="card-icon">⚡</div>
+        <div class="card-title">A smarter way to learn from mistakes</div>
+        <div class="card-desc">Hybrid optimizer — different strategies for matrices vs. everything else</div>
+    </div>
+    <div class="card c2">
+        <div class="card-icon">👁</div>
+        <div class="card-title">Selective memory during reading</div>
+        <div class="card-desc">Alternates full-context and short-context attention layers</div>
+    </div>
+    <div class="card c3">
+        <div class="card-icon">📦</div>
+        <div class="card-title">Zero wasted data</div>
+        <div class="card-desc">Best-fit packing — 100% token utilization, no padding</div>
+    </div>
+    <div class="card c4">
+        <div class="card-icon">🛑</div>
+        <div class="card-title">Fast-fail on bad experiments</div>
+        <div class="card-desc">NaN loss kills the run immediately — no wasted compute</div>
+    </div>
+</body>
+</html>

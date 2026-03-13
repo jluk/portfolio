@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            width: 1200px;
+            height: 630px;
+            background: #fafafa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 60px 80px;
+        }
+        .chart-area {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .chart-title {
+            font-size: 34px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 40px;
+        }
+        .chart {
+            flex: 1;
+            position: relative;
+            border-left: 3px solid #d4d4d4;
+            border-bottom: 3px solid #d4d4d4;
+        }
+        .axis-label {
+            position: absolute;
+            font-size: 16px;
+            color: #999;
+            font-weight: 500;
+        }
+        .y-label {
+            top: -8px;
+            left: -8px;
+            transform: rotate(-90deg) translateX(-100%);
+            transform-origin: top left;
+        }
+        .x-label { bottom: -32px; right: 0; }
+
+        .grid-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e5e7eb;
+        }
+        .step-segment {
+            position: absolute;
+            height: 4px;
+            background: #2563eb;
+        }
+        .step-vert {
+            position: absolute;
+            width: 4px;
+            background: #2563eb;
+        }
+        .step-dot {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            transform: translate(-50%, 50%);
+        }
+        .step-dot.fail { background: #ef4444; opacity: 0.5; }
+        .step-dot.success { background: #34d399; }
+
+        .callout {
+            position: absolute;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.3;
+            padding: 8px 14px;
+            border-radius: 8px;
+            white-space: nowrap;
+        }
+        .callout-fail {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+        .callout-success {
+            background: #f0fdf4;
+            color: #16a34a;
+            border: 1px solid #bbf7d0;
+        }
+
+        .stats {
+            width: 260px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 36px;
+            padding-left: 48px;
+            border-left: 2px solid #e5e7eb;
+        }
+        .stat-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: #111;
+            line-height: 1;
+        }
+        .stat-value .unit {
+            font-size: 28px;
+            color: #666;
+            font-weight: 500;
+        }
+        .stat-label {
+            font-size: 16px;
+            color: #666;
+            margin-top: 4px;
+        }
+        .stat-value.green { color: #16a34a; }
+        .stat-value.red { color: #dc2626; }
+    </style>
+</head>
+<body>
+    <div class="chart-area">
+        <div class="chart-title">Compounding Gains</div>
+        <div class="chart" id="chart">
+            <span class="axis-label y-label">Better BPB</span>
+            <span class="axis-label x-label">Experiments →</span>
+
+            <div class="grid-line" style="bottom: 25%;"></div>
+            <div class="grid-line" style="bottom: 50%;"></div>
+            <div class="grid-line" style="bottom: 75%;"></div>
+
+            <!-- Baseline -->
+            <div class="step-segment" style="bottom: 12%; left: 0%; width: 10%;"></div>
+            <div class="step-dot fail" style="bottom: 12%; left: 10%;"></div>
+            <div class="step-segment" style="bottom: 12%; left: 10%; width: 8%;"></div>
+
+            <!-- Jump 1 -->
+            <div class="step-vert" style="bottom: 12%; left: 18%; height: 14%;"></div>
+            <div class="step-segment" style="bottom: 26%; left: 18%; width: 10%;"></div>
+            <div class="step-dot success" style="bottom: 26%; left: 18%;"></div>
+
+            <!-- Fail -->
+            <div class="step-dot fail" style="bottom: 26%; left: 28%;"></div>
+            <div class="step-segment" style="bottom: 26%; left: 28%; width: 8%;"></div>
+
+            <!-- Jump 2 -->
+            <div class="step-vert" style="bottom: 26%; left: 36%; height: 12%;"></div>
+            <div class="step-segment" style="bottom: 38%; left: 36%; width: 10%;"></div>
+            <div class="step-dot success" style="bottom: 38%; left: 36%;"></div>
+
+            <!-- Jump 3 -->
+            <div class="step-vert" style="bottom: 38%; left: 46%; height: 10%;"></div>
+            <div class="step-segment" style="bottom: 48%; left: 46%; width: 8%;"></div>
+            <div class="step-dot success" style="bottom: 48%; left: 46%;"></div>
+
+            <!-- Fail -->
+            <div class="step-dot fail" style="bottom: 48%; left: 54%;"></div>
+            <div class="step-segment" style="bottom: 48%; left: 54%; width: 8%;"></div>
+
+            <!-- Jump 4 -->
+            <div class="step-vert" style="bottom: 48%; left: 62%; height: 12%;"></div>
+            <div class="step-segment" style="bottom: 60%; left: 62%; width: 10%;"></div>
+            <div class="step-dot success" style="bottom: 60%; left: 62%;"></div>
+
+            <!-- Fail -->
+            <div class="step-dot fail" style="bottom: 60%; left: 72%;"></div>
+            <div class="step-segment" style="bottom: 60%; left: 72%; width: 8%;"></div>
+
+            <!-- Jump 5 -->
+            <div class="step-vert" style="bottom: 60%; left: 80%; height: 14%;"></div>
+            <div class="step-segment" style="bottom: 74%; left: 80%; width: 14%;"></div>
+            <div class="step-dot success" style="bottom: 74%; left: 80%;"></div>
+
+            <!-- Callouts -->
+            <div class="callout callout-fail" style="top: 58%; left: 4%;">
+                ✗ Revert
+            </div>
+            <div class="callout callout-success" style="top: 12%; left: 62%;">
+                ✓ Keep
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div>
+            <div class="stat-value green">~30%</div>
+            <div class="stat-label">kept</div>
+        </div>
+        <div>
+            <div class="stat-value red">~70%</div>
+            <div class="stat-label">reverted</div>
+        </div>
+        <div>
+            <div class="stat-value">1.28<br><span class="unit">→</span> 1.06</div>
+            <div class="stat-label">BPB improvement</div>
+        </div>
+    </div>
+</body>
+</html>

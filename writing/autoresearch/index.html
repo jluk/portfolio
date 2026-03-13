@@ -409,6 +409,32 @@
             font-weight: 500;
         }
 
+        /* Article images */
+        .article-image {
+            width: 100%;
+            margin: 2rem 0;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .article-image-full {
+            width: calc(100% + 4rem);
+            margin-left: -2rem;
+            margin-right: -2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .article-image-full {
+                width: calc(100% + 2rem);
+                margin-left: -1rem;
+                margin-right: -1rem;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 600px) {
             .article-header h1 {
@@ -464,6 +490,8 @@
 
             <p>I think it's one of the more important things to come out of the AI tooling space this year, and it deserves a clear explanation for people who aren't neck-deep in ML Twitter. It will certainly be cited as obvious in hindsight, a mark of a great product.</p>
 
+            <img src="img-hero.png" alt="The Autoresearch Loop — 5 steps: Modify Code, Train 5 min, Measure BPB, Keep or Revert, Repeat" class="article-image-full">
+
             <h2>What is it</h2>
 
             <p>The setup is relatively straightforward. There's a training script that builds and trains a small language model. An AI agent is given permission to modify that script — and only that script. Then it <a href="https://x.com/karpathy/status/2030371219518931079">loops</a>:</p>
@@ -480,23 +508,27 @@
 
             <h2>Not your grandpa's hyperparameter tuning</h2>
 
-            <p>Automated hyperparameter search has existed for decades. Grid search, random search, Bayesian optimization — all well-understood. But those tools search within a space that a human defines. You set bounds on learning rate, batch size, maybe model width, and the system explores that finite box.</p>
+            <p>Automated hyperparameter search has existed for decades with grid search, random search, Bayesian optimization — all well-understood. However, those tools search within a space that a human defines. You have to set bounds on learning rate, batch size, maybe model width, and the system explores that finite box.</p>
 
-            <p>Autoresearch is very different because the agent modifies source code. It can restructure the model architecture, introduce new techniques, change the optimizer, or rewrite the training loop. It's not bounded by a predefined search space. It operates the way a researcher operates — read the code, form a hypothesis, change something, measure the outcome.</p>
+            <p>Autoresearch is very different because the agent modifies source code autonomously to restructure model architecture, introduce new techniques, change the optimizer, or rewrite the training loop. No predefined search space to limit it's scope, so tt operates closer to a researcher — read the code, form a hypothesis, change something, measure the outcome.</p>
 
-            <p>The gap between "search within bounds I set" and "modify the code itself" is the gap between optimization and research.</p>
+            <img src="img-comparison.png" alt="Traditional hyperparameter search (bounded grid) vs Autoresearch source code modification (unbounded)" class="article-image">
+
+            <p>The gap between "search within bounds I set" and "modify the code itself" is the gap between minor optimization and research while I sleep.</p>
 
             <h2>You have five minutes, Mr. Agent</h2>
 
             <p>If you measure experiments by training steps, your results are hardware-dependent. An H100 and a laptop would yield incomparable data. The five-minute wall-clock constraint makes results portable across hardware so the agent discovers what's optimal for whatever machine it's on.</p>
 
-            <p>It also creates a useful pressure on efficiency. A bloated model that trains slowly will lose to a lean model that converges fast. This is a real constraint in production ML — compute has a cost, and speed of iteration compounds. This time budget encodes that reality directly into the experiment loop.</p>
+            <p>It also creates a valuable efficiency pressure, as a bloated model that trains slowly will lose to a lean model that converges fast. For production ML compute carries a cost so the speed of iteration compounds. This time budget encodes that requirement directly into the experiment loop.</p>
 
-            <p>And practically: five minutes means failed experiments are quite cheap. The agent can take risks and it should as most ideas in ML research don't work. A system that can try a hundred of them overnight, cheaply, and keep only the wins produces high expected value with low downside per trial.</p>
+            <p>Practically, five minutes means failed experiments are also cheap. The agent can take risks and it should as most ideas in ML research don't work. A system that can try a hundred of them overnight, cheaply, and keep only the wins produces high expected value with low downside per trial.</p>
 
             <h2>Training code is Karpathy level</h2>
 
-            <p>Worth noting: the code the agent modifies is legit as you'd expect from Karpathy. The whole thing is <a href="https://github.com/karpathy/autoresearch/blob/master/train.py">~630 lines of Python</a> — minimal, but state-of-the-art.</p>
+            <img src="img-baseline.png" alt="The baseline is Karpathy-level: MuonAdamW hybrid optimizer, sliding window attention, best-fit data packing, fast-fail on NaN" class="article-image">
+
+            <p>Worth noting: the baseline code the agent modifies is very strong (as you'd expect from Karpathy). The whole thing is <a href="https://github.com/karpathy/autoresearch/blob/master/train.py">~630 lines of Python</a> — minimal, but state-of-the-art.</p>
 
             <p>Here's what the baseline already does:</p>
 
@@ -524,11 +556,15 @@
 
             <p>If 10% of experiments produce a measurable gain, that's ten improvements overnight which compound on the last. Over a week, that's 70 improvements. While gains may be incremental per experiment, the compounding is significant. This is the same math that makes continuous integration incredibly valuable — small, frequent, validated changes accumulate into large differences. (Thanks calc3, for making me take the area of a donut.)</p>
 
+            <img src="img-compounding.png" alt="Compounding gains over ~100 experiments — ~30% kept, ~70% reverted, BPB improves from 1.28 to 1.06" class="article-image">
+
             <p>The <strong>cost of failure is bounded</strong> and the <strong>value of success is cumulative</strong>.</p>
 
             <h2>Next will be scaling compute, time, memory and application domains</h2>
 
             <p>This is a single agent on a single GPU. The logical next steps:</p>
+
+            <img src="img-swarm.png" alt="Evolution from single agent today, to agent swarm, to autonomous research lab" class="article-image">
 
             <p><strong>1. Parallel agents across a cluster.</strong> Karpathy has already said the next step is <a href="https://x.com/karpathy/status/2030705271627284816">SETI@home-style massive collaboration</a>: "The goal is not to emulate a single PhD student, it's to emulate a research community of them." Multiple agents exploring different parts of the design space simultaneously, with a shared leaderboard of what's working. This is where throughput goes from a hundred experiments a night to thousands.</p>
 

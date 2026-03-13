@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            width: 1200px;
+            height: 630px;
+            background: #fafafa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 0 80px;
+            gap: 60px;
+        }
+        .text-block {
+            flex-shrink: 0;
+            width: 320px;
+        }
+        .text-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #111;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+        .text-stat {
+            margin-top: 12px;
+            font-size: 20px;
+            color: #34d399;
+            font-weight: 600;
+        }
+        .loop-container {
+            position: relative;
+            width: 460px;
+            height: 460px;
+            flex-shrink: 0;
+        }
+        .center {
+            position: absolute;
+            top: 230px; left: 230px;
+            transform: translate(-50%, -50%);
+            width: 130px; height: 130px;
+            border-radius: 50%;
+            background: #111;
+            display: flex; align-items: center; justify-content: center;
+            flex-direction: column;
+            z-index: 2;
+        }
+        .center-icon { font-size: 32px; color: #34d399; }
+        .center-label { font-size: 15px; color: #919191; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+        .orbit {
+            position: absolute;
+            top: 230px; left: 230px;
+            transform: translate(-50%, -50%);
+            width: 340px; height: 340px;
+            border-radius: 50%;
+            border: 2.5px dashed #ccc;
+        }
+        /* Step number circles: 50x50, centered exactly on the orbit (r=170px) */
+        .step-num {
+            position: absolute;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 20px; font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+        }
+        /* Labels positioned near each num */
+        .step-label {
+            position: absolute;
+            font-size: 18px;
+            font-weight: 700;
+            color: #111;
+            white-space: nowrap;
+            transform: translate(-50%, 0);
+        }
+
+        /*
+         * 5 points on circle, r=170, center=(230,230)
+         * Evenly spaced, starting from top, clockwise:
+         *   0°: (230, 60)
+         *  72°: (392, 177)
+         * 144°: (330, 368)
+         * 216°: (130, 368)
+         * 288°: ( 68, 177)
+         */
+        .n1 { top: 60px;  left: 230px; background: #111; }
+        .n2 { top: 177px; left: 392px; background: #2563eb; }
+        .n3 { top: 368px; left: 330px; background: #7c3aed; }
+        .n4 { top: 368px; left: 130px; background: #16a34a; }
+        .n5 { top: 177px; left: 68px;  background: #34d399; }
+
+        /* Labels offset below or beside their num */
+        .l1 { top: 94px;  left: 230px; }
+        .l2 { top: 211px; left: 392px; }
+        .l3 { top: 402px; left: 330px; }
+        .l4 { top: 402px; left: 130px; }
+        .l5 { top: 211px; left: 68px; }
+
+        /* Arrows on orbit between steps */
+        .arrow {
+            position: absolute;
+            color: #bbb; font-size: 20px;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        /*
+         * Midpoints at 36°, 108°, 180°, 252°, 324° from top:
+         *   36°: (330, 93)  rotate(36deg)
+         *  108°: (392, 293) rotate(108deg)
+         *  180°: (230, 400) rotate(180deg)
+         *  252°: ( 68, 293) rotate(252deg)
+         *  324°: (130, 93)  rotate(324deg)
+         */
+        .a1 { top: 93px;  left: 330px; transform: translate(-50%, -50%) rotate(36deg); }
+        .a2 { top: 293px; left: 392px; transform: translate(-50%, -50%) rotate(108deg); }
+        .a3 { top: 400px; left: 230px; transform: translate(-50%, -50%) rotate(180deg); }
+        .a4 { top: 293px; left: 68px;  transform: translate(-50%, -50%) rotate(252deg); }
+        .a5 { top: 93px;  left: 130px; transform: translate(-50%, -50%) rotate(324deg); }
+    </style>
+</head>
+<body>
+    <div class="text-block">
+        <div class="text-title">The Autoresearch Loop</div>
+        <div class="text-stat">~100 experiments overnight</div>
+    </div>
+
+    <div class="loop-container">
+        <div class="orbit"></div>
+        <div class="center">
+            <span class="center-icon">&#x27F3;</span>
+            <span class="center-label">5 min</span>
+        </div>
+
+        <div class="step-num n1">1</div>
+        <div class="step-label l1">Modify Code</div>
+
+        <span class="arrow a1">&#x279C;</span>
+
+        <div class="step-num n2">2</div>
+        <div class="step-label l2">Train</div>
+
+        <span class="arrow a2">&#x279C;</span>
+
+        <div class="step-num n3">3</div>
+        <div class="step-label l3">Measure</div>
+
+        <span class="arrow a3">&#x279C;</span>
+
+        <div class="step-num n4">&#x2713;</div>
+        <div class="step-label l4">Keep / Revert</div>
+
+        <span class="arrow a4">&#x279C;</span>
+
+        <div class="step-num n5">&#x21BB;</div>
+        <div class="step-label l5">Repeat</div>
+
+        <span class="arrow a5">&#x279C;</span>
+    </div>
+</body>
+</html>

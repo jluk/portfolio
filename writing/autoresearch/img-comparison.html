@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            width: 1200px;
+            height: 630px;
+            background: #fafafa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            overflow: hidden;
+            padding: 48px 60px;
+        }
+        .panel {
+            flex: 1;
+            height: 100%;
+            border-radius: 20px;
+            padding: 44px;
+            display: flex;
+            flex-direction: column;
+        }
+        .panel-old {
+            background: #fff;
+            border: 2px solid #e5e7eb;
+        }
+        .panel-new {
+            background: #111;
+            color: #fff;
+            border: 2px solid #333;
+        }
+        .panel-tag {
+            font-size: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+        .panel-old .panel-tag { color: #999; }
+        .panel-new .panel-tag { color: #34d399; }
+
+        .panel-title {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 28px;
+            line-height: 1.15;
+        }
+
+        .panel-visual {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Old: bounded grid */
+        .grid-box {
+            width: 320px;
+            height: 260px;
+            border: 3px dashed #d4d4d4;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 8px;
+            padding: 20px;
+        }
+        .grid-dot {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: #e5e7eb;
+        }
+        .grid-dot.searched { background: #93c5fd; }
+        .grid-dot.best { background: #2563eb; }
+
+        /* New: code diff */
+        .code-block {
+            width: 360px;
+            font-family: 'SF Mono', 'Consolas', monospace;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #a3a3a3;
+        }
+        .code-block .changed {
+            color: #34d399;
+            font-weight: 600;
+        }
+        .code-block .removed {
+            color: #ef4444;
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+        .code-line { padding: 2px 0; }
+        .line-add {
+            background: rgba(52, 211, 153, 0.1);
+            border-left: 4px solid #34d399;
+            padding-left: 12px;
+        }
+        .line-remove {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #ef4444;
+            padding-left: 12px;
+        }
+
+        .panel-label {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 24px;
+            text-align: center;
+        }
+        .panel-old .panel-label { color: #999; }
+        .panel-new .panel-label { color: #34d399; }
+
+        .vs {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ccc;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel panel-old">
+        <div class="panel-tag">Traditional</div>
+        <div class="panel-title">Hyperparameter<br>Search</div>
+        <div class="panel-visual">
+            <div class="grid-box">
+                <div class="grid-dot"></div><div class="grid-dot searched"></div><div class="grid-dot"></div><div class="grid-dot searched"></div>
+                <div class="grid-dot searched"></div><div class="grid-dot"></div><div class="grid-dot best"></div><div class="grid-dot searched"></div>
+                <div class="grid-dot"></div><div class="grid-dot searched"></div><div class="grid-dot"></div><div class="grid-dot"></div>
+            </div>
+        </div>
+        <div class="panel-label">Bounded search space</div>
+    </div>
+
+    <div class="vs">vs</div>
+
+    <div class="panel panel-new">
+        <div class="panel-tag">Autoresearch</div>
+        <div class="panel-title">Source Code<br>Modification</div>
+        <div class="panel-visual">
+            <div class="code-block">
+                <div class="code-line line-remove"><span class="removed">n_layers = 8</span></div>
+                <div class="code-line line-add"><span class="changed">n_layers = 12</span></div>
+                <div class="code-line">&nbsp;</div>
+                <div class="code-line line-remove"><span class="removed">optimizer = AdamW</span></div>
+                <div class="code-line line-add"><span class="changed">optimizer = MuonAdamW</span></div>
+                <div class="code-line">&nbsp;</div>
+                <div class="code-line line-add"><span class="changed">window = "SSSL"</span></div>
+            </div>
+        </div>
+        <div class="panel-label">Unbounded exploration</div>
+    </div>
+</body>
+</html>
