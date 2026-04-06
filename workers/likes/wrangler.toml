@@ -1,0 +1,7 @@
+name = "likes-api"
+main = "index.js"
+compatibility_date = "2026-03-13"
+
+[[kv_namespaces]]
+binding = "LIKES"
+id = "" # Fill after running: wrangler kv namespace create LIKES
